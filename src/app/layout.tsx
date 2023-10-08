@@ -41,7 +41,8 @@ export default function RootLayout({
           " " +
           merriweather.className +
           " " +
-          montserrat.className
+          montserrat.className +
+          " dark bg-white dark:bg-[#121212]"
         }
       >
         <Header />

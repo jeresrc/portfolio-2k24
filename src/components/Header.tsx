@@ -25,7 +25,7 @@ function Header() {
       variants={variants}
       animate={scrolled ? "show" : "hidden"}
       initial="hidden"
-      className="header text-white fixed top-0 left-0 w-full z-10 [font-stretch:expanded] font-bold
+      className="text-white fixed top-0 left-0 w-full z-10 [font-stretch:expanded] font-bold
       justify-between flex px-2"
     >
       <Chip variant="secondary" blur="md">

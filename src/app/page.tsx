@@ -10,8 +10,8 @@ export default function Home() {
         JERESC
       </h1>
 
-      <LandingTitle />
-      <h2 className="text-3xl leading-normal inline-block font-[400] font-merriweather mt-10">
+      {/* <LandingTitle /> */}
+      <h2 className="text-3xl leading-normal inline-block font-[400] font-merriweather">
         <TextWithPopups
           left={
             <Image
