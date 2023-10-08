@@ -1,5 +1,7 @@
 import LandingTitle from "@/components/LandingTitle";
 import TextWithPopups from "@/components/TextWithPopups";
+import ThisIsFine from "@/assets/imgs/this-is-fine.gif";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,15 +11,38 @@ export default function Home() {
       </h1>
 
       <LandingTitle />
-
-      <div className="mt-20 min-h-screen">a</div>
-      <h2 className="text-5xl inline-block mx-auto">
+      <h2 className="text-3xl leading-normal inline-block font-[400] font-merriweather mt-10">
         <TextWithPopups
-          left="This is fine"
-          text="New Stuff"
+          left={
+            <Image
+              width={200}
+              height={200}
+              src={ThisIsFine.src}
+              alt="dev"
+              className="w-full h-full object-cover"
+            />
+          }
+          text="Junior"
+          right="How 'about you?"
+          variant="red-orange"
+        />
+        {" Front End Web "}
+        <TextWithPopups
+          left="New Stuff"
+          text="Developer"
           right="Sample Text"
+          variant="orange-yellow"
         />
       </h2>
+
+      <Image
+        width={200}
+        height={200}
+        src={ThisIsFine.src}
+        alt="dev"
+        className="w-full h-full object-cover"
+      />
+      <div className="mt-96 min-h-[200vh]">a</div>
     </section>
   );
 }

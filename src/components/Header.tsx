@@ -1,6 +1,5 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import Link from "next/link";
 import { useState } from "react";
 import Nav from "./Nav";
 import Chip from "./Chip";
@@ -26,12 +25,14 @@ function Header() {
       variants={variants}
       animate={scrolled ? "show" : "hidden"}
       initial="hidden"
-      className="header text-white fixed top-0 left-0 w-full z-10"
+      className="header text-white fixed top-0 left-0 w-full z-10 [font-stretch:expanded] font-bold
+      justify-between flex px-2"
     >
-      <Chip variant="secondary">
-        <a href="#">jeresc</a>
+      <Chip variant="secondary" blur="md">
+        <a href="#">JERESC</a>
       </Chip>
       <Nav />
+      <a href=""></a>
     </motion.header>
   );
 }

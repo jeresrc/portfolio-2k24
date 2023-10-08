@@ -3,55 +3,103 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
 interface IProps {
-  left: string;
+  left: string | React.ReactNode;
   right: string | React.ReactNode;
-  text: string | React.ReactNode;
+  text: string;
+  variant: string;
 }
 
-function TextWithPopups({ left, text, right }: IProps) {
+function TextWithPopups({ left, text, right, variant }: IProps) {
+  const variantCreator = (variant: string, placement: string) => {
+    const colors: { [key: string]: string } = {
+      none: "bg-transparent text-transparent",
+      red: "bg-red-200 text-red-600",
+      orange: "bg-orange-200 text-orange-600",
+      yellow: "bg-yellow-200 text-yellow-600",
+      green: "bg-green-200 text-green-600",
+      blue: "bg-blue-200 text-blue-600",
+      purple: "bg-purple-200 text-purple-600",
+      pink: "bg-pink-200 text-pink-600",
+      black: "bg-black-200 text-black-600",
+      white: "bg-white-200 text-white-600",
+    };
+
+    let variantArray = variant.split("-");
+    return placement == "left"
+      ? colors[variantArray[0]]
+      : colors[variantArray[1]];
+  };
   const [showPopups, setShowPopups] = useState(false);
-  const leftPopup = useRef(null);
-  const rightPopup = useRef(null);
 
   const leftVariants = {
-    hidden: { opacity: 0, scale: 0, rotate: 0, x: 40, y: 30 },
+    hidden: {
+      opacity: 0,
+      scale: 0,
+      rotate: 0,
+      x: "calc(-10%)",
+      y: "calc(-45%)",
+    },
     show: {
       opacity: 1,
       scale: 1,
       rotate: -10,
-      x: -(leftPopup.current?.clientWidth / 2),
-      y: -(leftPopup.current?.clientHeight / 1.1),
+      x: "calc(-50%)",
+      y: "calc(-95%)",
     },
   };
   const rightVariants = {
-    hidden: { opacity: 0, scale: 0, rotate: 0 },
-    show: { opacity: 1, scale: 1, rotate: 10 },
+    hidden: {
+      opacity: 0,
+      scale: 0,
+      rotate: 0,
+      x: "calc(25%)",
+      y: "calc(70%)",
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      rotate: 10,
+      x: "calc(75%)",
+      y: "calc(120%)",
+    },
   };
 
   return (
     <motion.span
-      className="relative ml-24"
+      className="relative hover:text-orange-400 cursor-help"
       onMouseOver={() => setShowPopups(true)}
       onMouseOut={() => setShowPopups(false)}
     >
       <motion.span
-        className={`absolute top-0 translate-y-[-100%] translate-x-[-50%] left-0
-        font-bold text-sm p-[5px] rounded-md whitespace-nowrap bg-red-200 text-red-600`}
+        className={`absolute left-0 top-0  overflow-hidden
+        font-bold text-sm rounded-md whitespace-nowrap object-cover
+        ${
+          typeof left != "string"
+            ? "w-[100px] h-[100px]"
+            : `p-[5px] ${variantCreator(variant, "left")}`
+        }
+`}
         animate={showPopups ? "show" : "hidden"}
         variants={leftVariants}
+        initial="hidden"
         transition={{ type: "spring", damping: 30, stiffness: 1200 }}
-        ref={leftPopup}
       >
         {left}
       </motion.span>
       {text}
       <motion.span
-        className="absolute bottom-0 translate-y-full right-[0] text-white
-         text-sm p-[5px] rounded-md whitespace-nowrap translate-x-[50%] "
+        className={`absolute font-bold overflow-hidden font-montserrat
+         text-sm rounded-md whitespace-nowrap right-0 bottom-0
+        ${
+          typeof right != "string"
+            ? "w-[100px] h-[100px]"
+            : `p-[5px] ${variantCreator(variant, "right")}`
+        }
+`}
         animate={showPopups ? "show" : "hidden"}
         variants={rightVariants}
+        initial="hidden"
         transition={{ type: "spring", damping: 30, stiffness: 1200 }}
-        ref={rightPopup}
       >
         {right}
       </motion.span>
