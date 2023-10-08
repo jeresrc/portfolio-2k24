@@ -2,6 +2,8 @@
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import Nav from "./Nav";
+import Chip from "./Chip";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,16 +28,10 @@ function Header() {
       initial="hidden"
       className="header text-white fixed top-0 left-0 w-full z-10"
     >
-      <nav className="flex items-center justify-between">
-        <ul className="flex gap-2">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/about">about</Link>
-          </li>
-        </ul>
-      </nav>
+      <Chip variant="secondary">
+        <a href="#">jeresc</a>
+      </Chip>
+      <Nav />
     </motion.header>
   );
 }

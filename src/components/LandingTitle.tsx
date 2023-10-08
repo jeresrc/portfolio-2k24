@@ -32,7 +32,7 @@ const LandingTitle = () => {
         <span
           onMouseOver={() => showText(1)}
           onMouseOut={() => showText(null)}
-          className={`${text == 1 ? "text-red-300" : "text-white"}`}
+          className={`${text == 1 ? "text-red-300" : "text-white"} cursor-help`}
         >
           Junior
         </span>
