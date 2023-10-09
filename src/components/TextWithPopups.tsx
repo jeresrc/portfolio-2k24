@@ -66,7 +66,7 @@ function TextWithPopups({ left, text, right, variant }: IProps) {
 
   return (
     <motion.span
-      className='relative cursor-help hover:text-orange-400'
+      className='relative cursor-none hover:text-orange-400'
       onMouseOver={() => setShowPopups(true)}
       onMouseOut={() => setShowPopups(false)}
     >

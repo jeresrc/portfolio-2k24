@@ -7,13 +7,17 @@ function Nav() {
   const [linkSelected, setLinkSelected] = useState<null | string>('home')
 
   return (
-    <nav className='flex items-center justify-between rounded-2xl bg-[#0004] backdrop-blur-md'>
+    <nav
+      className='flex items-center justify-between rounded-2xl bg-[#eeec] text-black backdrop-blur-md
+      dark:bg-[#0004] dark:text-white'
+    >
       <motion.ul className='flex gap-4'>
         <NavLink href='#home'>
           Home
           {linkSelected == 'home' ? (
             <motion.div
-              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#fff0] backdrop-contrast-[300%]'
+              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#fff0]
+              backdrop-contrast-[300%]'
               layoutId='selected'
             />
           ) : (
@@ -24,7 +28,8 @@ function Nav() {
           Projects
           {linkSelected == 'projects' ? (
             <motion.div
-              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#0000] backdrop-contrast-200 backdrop-saturate-200'
+              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#0000] 
+              backdrop-contrast-200 backdrop-saturate-200'
               layoutId='selected'
             />
           ) : (
