@@ -1,110 +1,110 @@
-"use client";
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+'use client'
+import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
 
 interface IProps {
-  left: string | React.ReactNode;
-  right: string | React.ReactNode;
-  text: string;
-  variant: string;
+  left: string | React.ReactNode
+  right: string | React.ReactNode
+  text: string
+  variant: string
 }
 
 function TextWithPopups({ left, text, right, variant }: IProps) {
   const variantCreator = (variant: string, placement: string) => {
     const colors: { [key: string]: string } = {
-      none: "bg-transparent text-transparent",
-      red: "bg-red-200 text-red-600",
-      orange: "bg-orange-200 text-orange-600",
-      yellow: "bg-yellow-200 text-yellow-600",
-      green: "bg-green-200 text-green-600",
-      blue: "bg-blue-200 text-blue-600",
-      purple: "bg-purple-200 text-purple-600",
-      pink: "bg-pink-200 text-pink-600",
-      black: "bg-black-200 text-black-600",
-      white: "bg-white-200 text-white-600",
-    };
+      none: 'bg-transparent text-transparent',
+      red: 'bg-red-200 text-red-600',
+      orange: 'bg-orange-200 text-orange-600',
+      yellow: 'bg-yellow-200 text-yellow-600',
+      green: 'bg-green-200 text-green-600',
+      blue: 'bg-blue-200 text-blue-600',
+      purple: 'bg-purple-200 text-purple-600',
+      pink: 'bg-pink-200 text-pink-600',
+      black: 'bg-black-200 text-black-600',
+      white: 'bg-white-200 text-white-600',
+    }
 
-    let variantArray = variant.split("-");
-    return placement == "left"
+    let variantArray = variant.split('-')
+    return placement == 'left'
       ? colors[variantArray[0]]
-      : colors[variantArray[1]];
-  };
-  const [showPopups, setShowPopups] = useState(false);
+      : colors[variantArray[1]]
+  }
+  const [showPopups, setShowPopups] = useState(false)
 
   const leftVariants = {
     hidden: {
       opacity: 0,
       scale: 0,
       rotate: 0,
-      x: "calc(-10%)",
-      y: "calc(-45%)",
+      x: 'calc(-10%)',
+      y: 'calc(-45%)',
     },
     show: {
       opacity: 1,
       scale: 1,
       rotate: -10,
-      x: "calc(-50%)",
-      y: "calc(-95%)",
+      x: 'calc(-50%)',
+      y: 'calc(-95%)',
     },
-  };
+  }
   const rightVariants = {
     hidden: {
       opacity: 0,
       scale: 0,
       rotate: 0,
-      x: "calc(25%)",
-      y: "calc(70%)",
+      x: 'calc(25%)',
+      y: 'calc(70%)',
     },
     show: {
       opacity: 1,
       scale: 1,
       rotate: 10,
-      x: "calc(75%)",
-      y: "calc(120%)",
+      x: 'calc(75%)',
+      y: 'calc(120%)',
     },
-  };
+  }
 
   return (
     <motion.span
-      className="relative hover:text-orange-400 cursor-help"
+      className='relative cursor-help hover:text-orange-400'
       onMouseOver={() => setShowPopups(true)}
       onMouseOut={() => setShowPopups(false)}
     >
       <motion.span
         className={`absolute left-0 top-0  overflow-hidden
-        font-bold text-sm rounded-md whitespace-nowrap object-cover
+        whitespace-nowrap rounded-md object-cover text-sm font-bold
         ${
-          typeof left != "string"
-            ? "w-[100px] h-[100px]"
-            : `p-[5px] ${variantCreator(variant, "left")}`
+          typeof left != 'string'
+            ? 'h-[100px] w-[100px]'
+            : `p-[5px] ${variantCreator(variant, 'left')}`
         }
 `}
-        animate={showPopups ? "show" : "hidden"}
+        animate={showPopups ? 'show' : 'hidden'}
         variants={leftVariants}
-        initial="hidden"
-        transition={{ type: "spring", damping: 30, stiffness: 1200 }}
+        initial='hidden'
+        transition={{ type: 'spring', damping: 30, stiffness: 1200 }}
       >
         {left}
       </motion.span>
       {text}
       <motion.span
-        className={`absolute font-bold overflow-hidden font-montserrat
-         text-sm rounded-md whitespace-nowrap right-0 bottom-0
+        className={`absolute bottom-0 right-0 overflow-hidden
+         whitespace-nowrap rounded-md font-montserrat text-sm font-bold
         ${
-          typeof right != "string"
-            ? "w-[100px] h-[100px]"
-            : `p-[5px] ${variantCreator(variant, "right")}`
+          typeof right != 'string'
+            ? 'h-[100px] w-[100px]'
+            : `p-[5px] ${variantCreator(variant, 'right')}`
         }
 `}
-        animate={showPopups ? "show" : "hidden"}
+        animate={showPopups ? 'show' : 'hidden'}
         variants={rightVariants}
-        initial="hidden"
-        transition={{ type: "spring", damping: 30, stiffness: 1200 }}
+        initial='hidden'
+        transition={{ type: 'spring', damping: 30, stiffness: 1200 }}
       >
         {right}
       </motion.span>
     </motion.span>
-  );
+  )
 }
 
-export default TextWithPopups;
+export default TextWithPopups

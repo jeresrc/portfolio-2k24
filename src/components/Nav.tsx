@@ -1,78 +1,78 @@
-"use client";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { useState } from "react";
+'use client'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useState } from 'react'
 
 function Nav() {
-  const [linkSelected, setLinkSelected] = useState<null | string>("home");
+  const [linkSelected, setLinkSelected] = useState<null | string>('home')
 
   return (
-    <nav className="flex items-center justify-between backdrop-blur-md rounded-2xl bg-[#0004]">
-      <motion.ul className="flex gap-4">
-        <NavLink href="#home">
+    <nav className='flex items-center justify-between rounded-2xl bg-[#0004] backdrop-blur-md'>
+      <motion.ul className='flex gap-4'>
+        <NavLink href='#home'>
           Home
-          {linkSelected == "home" ? (
+          {linkSelected == 'home' ? (
             <motion.div
-              className="bg-[#fff0] w-full h-full backdrop-contrast-[300%] absolute top-0 left-0 rounded-2xl"
-              layoutId="selected"
+              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#fff0] backdrop-contrast-[300%]'
+              layoutId='selected'
             />
           ) : (
-            ""
+            ''
           )}
         </NavLink>
-        <NavLink href="#projects">
+        <NavLink href='#projects'>
           Projects
-          {linkSelected == "projects" ? (
+          {linkSelected == 'projects' ? (
             <motion.div
-              className="bg-[#0000] w-full h-full backdrop-contrast-200 backdrop-saturate-200 absolute top-0 left-0 rounded-2xl"
-              layoutId="selected"
+              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#0000] backdrop-contrast-200 backdrop-saturate-200'
+              layoutId='selected'
             />
           ) : (
-            ""
+            ''
           )}
         </NavLink>
-        <NavLink href="#contact">
+        <NavLink href='#contact'>
           Contact
-          {linkSelected == "contact" ? (
+          {linkSelected == 'contact' ? (
             <motion.div
-              className="bg-[#fff0] w-full h-full backdrop-contrast-200 absolute top-0 left-0 rounded-2xl"
-              layoutId="selected"
+              className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#fff0] backdrop-contrast-200'
+              layoutId='selected'
             />
           ) : (
-            ""
+            ''
           )}
         </NavLink>
       </motion.ul>
       <button
         onClick={() =>
-          setLinkSelected(linkSelected == "home" ? "projects" : "home")
+          setLinkSelected(linkSelected == 'home' ? 'projects' : 'home')
         }
       >
         A
       </button>
       <button
         onClick={() =>
-          setLinkSelected(linkSelected == "home" ? "contact" : "home")
+          setLinkSelected(linkSelected == 'home' ? 'contact' : 'home')
         }
       >
         B
       </button>
     </nav>
-  );
+  )
 }
 
 function NavLink({
   children,
   href,
 }: {
-  children: React.ReactNode;
-  href: string;
+  children: React.ReactNode
+  href: string
 }) {
   return (
-    <motion.li className="px-2 py-1.5 hover:text-black hover:bg-[#fffc] rounded-2xl relative">
+    <motion.li className='relative rounded-2xl px-2 py-1.5 hover:bg-[#fffc] hover:text-black'>
       <Link href={href}>{children}</Link>
     </motion.li>
-  );
+  )
 }
 
-export default Nav;
+export default Nav
