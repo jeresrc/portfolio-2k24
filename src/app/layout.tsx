@@ -21,6 +21,8 @@ const monaSans = localFont({
       path: "../fonts/Mona-Sans.woff2",
     },
   ],
+  variable: "--font-mona-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

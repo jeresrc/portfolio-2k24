@@ -7,7 +7,7 @@ interface IProps {
 function Chip({ children, variant, blur }: IProps) {
   return (
     <div
-      className={`px-4 py-1 w-fit h-fit rounded-2xl bg-[#0004] ${`backdrop-blur-${blur}`}`}
+      className={`px-4 py-1 w-fit rounded-2xl bg-[#0004] ${`backdrop-blur-${blur}`}`}
     >
       {children}
     </div>

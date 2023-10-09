@@ -6,7 +6,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <section>
-      <h1 className="[font-stretch:expanded] text-8xl leading-none font-[800] title-h1">
+      <h1
+        className="[font-stretch:200%] text-8xl leading-none font-[800] title-h1"
+        id="home"
+      >
         JERESC
       </h1>
 
