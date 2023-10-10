@@ -71,17 +71,18 @@ export default function Home() {
         <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
           PROJECTS
         </h2>
-        <Image
-          width={1200}
-          height={900}
-          src={ThisIsFine.src}
-          alt='dev'
-          className='h-full w-full object-cover'
-        />
-        <Image src={AndgamesShot1.src} alt='dev' width={1200} height={900} />
-        <Image src={AndgamesShot2.src} alt='dev' width={1200} height={900} />
-        <Image src={AndgamesShot3.src} alt='dev' width={1200} height={900} />
-        <Image src={AndgamesShot4.src} alt='dev' width={1200} height={900} />
+        {/* <Image */}
+        {/*   width={1200} */}
+        {/*   height={900} */}
+        {/*   src={ThisIsFine.src} */}
+        {/*   alt='dev' */}
+        {/*   className='h-full w-full object-cover' */}
+        {/* /> */}
+        {/* <Image src={AndgamesShot1.src} alt='dev' width={1200} height={900} /> */}
+        {/* <Image src={AndgamesShot2.src} alt='dev' width={1200} height={900} /> */}
+        {/* <Image src={AndgamesShot3.src} alt='dev' width={1200} height={900} /> */}
+        {/* <Image src={AndgamesShot4.src} alt='dev' width={1200} height={900} /> */}
+
         <LoopImagesGallery
           images={[
             <Image

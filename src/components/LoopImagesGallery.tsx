@@ -6,23 +6,31 @@ interface IProps {
 }
 
 function LoopImagesGallery({ images }: IProps) {
-  const [currentImage, setCurrentImage] = useState(images[0])
+  const [currentImage, setCurrentImage] = useState(0)
+  const [isHovering, setIsHovering] = useState(false)
+
   useEffect(() => {
-    for (let i = 0; i < images.length; i++) {
-      setTimeout(() => {
-        setCurrentImage(images[i])
-      }, i * 1000)
-      if (i == images.length - 1) {
-        setTimeout(
-          () => {
-            setCurrentImage(images[0])
-          },
-          images.length * i * 1000
-        )
+    const interval = setInterval(() => {
+      if (isHovering) {
+        setCurrentImage((currentImage + 1) % images.length)
+      } else {
+        setCurrentImage(0)
       }
+    }, 700)
+    return () => {
+      clearInterval(interval)
     }
-  }, [images])
-  return <figure>{currentImage}</figure>
+  }, [currentImage, images, isHovering])
+
+  return (
+    <figure
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className='h-full max-h-[400px] w-full max-w-3xl cursor-pointer overflow-hidden rounded-lg object-cover shadow-lg'
+    >
+      {images[currentImage]}
+    </figure>
+  )
 }
 
 export default LoopImagesGallery
