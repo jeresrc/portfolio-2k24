@@ -12,11 +12,12 @@ function LoopImagesGallery({ images }: IProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (isHovering) {
-        setCurrentImage((currentImage + 1) % images.length)
-      } else {
-        setCurrentImage(0)
-      }
+      // make it ignore first image
+      isHovering
+        ? currentImage === images.length - 1
+          ? setCurrentImage(1)
+          : setCurrentImage((currentImage + 1) % images.length)
+        : setCurrentImage(0)
     }, 700)
     return () => {
       clearInterval(interval)

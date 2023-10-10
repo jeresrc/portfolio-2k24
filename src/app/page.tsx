@@ -1,10 +1,10 @@
-import LandingTitle from '@/components/LandingTitle'
 import TextWithPopups from '@/components/TextWithPopups'
 import ThisIsFine from '@/assets/imgs/this-is-fine.gif'
 import AndgamesShot1 from '@/assets/imgs/andgames-shot-1.jpeg'
 import AndgamesShot2 from '@/assets/imgs/andgames-shot-2.jpg'
 import AndgamesShot3 from '@/assets/imgs/andgames-shot-3.jpg'
 import AndgamesShot4 from '@/assets/imgs/andgames-shot-4.jpg'
+import AndgamesShot404 from '@/assets/imgs/andgames-shot-404.jpg'
 import Image from 'next/image'
 import Chip from '@/components/Chip'
 import DarkModeButton from '@/components/DarkModeButton'
@@ -72,24 +72,13 @@ export default function Home() {
         <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
           PROJECTS
         </h2>
-        {/* <Image */}
-        {/*   width={1200} */}
-        {/*   height={900} */}
-        {/*   src={ThisIsFine.src} */}
-        {/*   alt='dev' */}
-        {/*   className='h-full w-full object-cover' */}
-        {/* /> */}
-        {/* <Image src={AndgamesShot1.src} alt='dev' width={1200} height={900} /> */}
-        {/* <Image src={AndgamesShot2.src} alt='dev' width={1200} height={900} /> */}
-        {/* <Image src={AndgamesShot3.src} alt='dev' width={1200} height={900} /> */}
-        {/* <Image src={AndgamesShot4.src} alt='dev' width={1200} height={900} /> */}
 
         <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2'>
           <LoopImagesGallery
             images={[
               <Image
                 src={AndgamesShot1.src}
-                alt='dev'
+                alt='andgames project Landing page screenshot'
                 width={1244}
                 height={700}
                 className='h-full w-full object-contain'
@@ -97,7 +86,7 @@ export default function Home() {
               />,
               <Image
                 src={AndgamesShot2.src}
-                alt='dev'
+                alt='andgames project Home desktop screenshot'
                 width={1244}
                 height={700}
                 className='h-full w-full object-contain'
@@ -105,7 +94,7 @@ export default function Home() {
               />,
               <Image
                 src={AndgamesShot3.src}
-                alt='dev'
+                alt='andgames project Home mobile screenshot'
                 width={1244}
                 height={700}
                 className='h-full w-full object-cover'
@@ -113,11 +102,20 @@ export default function Home() {
               />,
               <Image
                 src={AndgamesShot4.src}
-                alt='dev'
+                alt='andgames project loading Home desktop screenshot'
                 width={1244}
                 height={700}
                 className='h-full w-full object-cover'
                 key={4}
+              />,
+
+              <Image
+                src={AndgamesShot404.src}
+                alt='andgames project loading Home desktop screenshot'
+                width={1244}
+                height={700}
+                className='h-full w-full object-cover'
+                key={5}
               />,
             ]}
           />

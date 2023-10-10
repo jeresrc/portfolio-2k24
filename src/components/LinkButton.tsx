@@ -17,7 +17,7 @@ function LinkButton({ href, text }: IProps) {
   return (
     <motion.a
       href={href}
-      className='dark:border-gray-700] flex rounded-xl border-[1px] bg-[#0001] px-2.5 py-1.5 hover:border-black'
+      className='flex rounded-xl border-[1px] border-[#0000] bg-[#0001] px-2.5 py-1.5 hover:border-black dark:bg-[#fff1] dark:hover:border-white'
       target='_blank'
       onMouseEnter={() => {
         setIsHovering(true)
@@ -28,14 +28,14 @@ function LinkButton({ href, text }: IProps) {
     >
       {text}
 
-      <MotionImage
-        src={LinkArrowSvg}
+      <motion.img
+        src={LinkArrowSvg.src}
         alt='link-arrow'
         width={16}
         height={16}
         animate={isHovering ? { x: 4, y: -4 } : { x: 0, y: 0 }}
         transition={{ duration: 0.2 }}
-        className='ml-0.5'
+        className='ml-0.5 fill-black dark:fill-white'
         layoutId='link-arrow'
       />
     </motion.a>
