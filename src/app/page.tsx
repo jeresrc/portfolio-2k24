@@ -5,6 +5,11 @@ import AndgamesShot2 from '@/assets/imgs/andgames-shot-2.jpg'
 import AndgamesShot3 from '@/assets/imgs/andgames-shot-3.jpg'
 import AndgamesShot4 from '@/assets/imgs/andgames-shot-4.jpg'
 import AndgamesShot404 from '@/assets/imgs/andgames-shot-404.jpg'
+import RickAndMortyShot1 from '@/assets/imgs/rickandmorty-landing.jpeg'
+import RickAndMortyShot2 from '@/assets/imgs/rickandmorty-shot-2.jpg'
+import RickAndMortyShot3 from '@/assets/imgs/rickandmorty-shot-3.jpg'
+import RickAndMortyShot4 from '@/assets/imgs/rickandmorty-shot-4.jpg'
+import RickAndMortyShot5 from '@/assets/imgs/rickandmorty-shot-5.jpg'
 import Image from 'next/image'
 import Chip from '@/components/Chip'
 import DarkModeButton from '@/components/DarkModeButton'
@@ -138,6 +143,74 @@ export default function Home() {
               own database to save new games.
             </p>
           </div>
+        </article>
+        <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2'>
+          <div className='order-2 flex flex-col items-start justify-center gap-3 lg:order-[-1] lg:items-end lg:text-right'>
+            <h2 className='text-3xl font-[800] [font-stretch:200%]'>
+              Rick And Morty
+            </h2>
+            <div className='flex gap-2'>
+              <LinkButton
+                href='https://videogames-app-jeresc.vercel.app/'
+                text='Live Demo'
+              />
+              <LinkButton
+                href='https://github.com/jeresc/andgames'
+                text='Source Code'
+              />
+            </div>
+            <p>
+              This is a Single Page Application (SPA) frontend created with
+              React, Redux Toolkit, and Styled Components. The application
+              fetches video game data from the rawg.io API and also features its
+              own database to save new games.
+            </p>
+          </div>
+          <LoopImagesGallery
+            images={[
+              <Image
+                src={RickAndMortyShot1.src}
+                alt='andgames project Landing page screenshot'
+                width={1244}
+                height={700}
+                className='h-full w-full object-contain'
+                key={1}
+              />,
+              <Image
+                src={RickAndMortyShot2.src}
+                alt='andgames project Home desktop screenshot'
+                width={1244}
+                height={700}
+                className='h-full w-full object-contain'
+                key={2}
+              />,
+              <Image
+                src={RickAndMortyShot4.src}
+                alt='andgames project loading Home desktop screenshot'
+                width={1244}
+                height={700}
+                className='h-full w-full object-cover'
+                key={4}
+              />,
+              <Image
+                src={RickAndMortyShot3.src}
+                alt='andgames project Home mobile screenshot'
+                width={1244}
+                height={700}
+                className='h-full w-full object-cover'
+                key={3}
+              />,
+
+              <Image
+                src={RickAndMortyShot5.src}
+                alt='andgames project loading Home desktop screenshot'
+                width={1244}
+                height={700}
+                className='h-full w-full object-cover'
+                key={5}
+              />,
+            ]}
+          />
         </article>
       </section>
     </>
