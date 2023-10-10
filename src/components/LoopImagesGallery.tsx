@@ -1,4 +1,5 @@
 'use client'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 interface IProps {
@@ -26,7 +27,7 @@ function LoopImagesGallery({ images }: IProps) {
     <figure
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className='h-full max-h-[400px] w-full max-w-3xl cursor-pointer overflow-hidden rounded-lg object-cover shadow-lg'
+      className='h-full w-full cursor-pointer overflow-hidden rounded-lg object-cover shadow-lg'
     >
       {images[currentImage]}
     </figure>

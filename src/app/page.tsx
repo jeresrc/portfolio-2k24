@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Chip from '@/components/Chip'
 import DarkModeButton from '@/components/DarkModeButton'
 import LoopImagesGallery from '@/components/LoopImagesGallery'
+import LinkButton from '@/components/LinkButton'
 
 export default function Home() {
   return (
@@ -83,38 +84,63 @@ export default function Home() {
         {/* <Image src={AndgamesShot3.src} alt='dev' width={1200} height={900} /> */}
         {/* <Image src={AndgamesShot4.src} alt='dev' width={1200} height={900} /> */}
 
-        <LoopImagesGallery
-          images={[
-            <Image
-              src={AndgamesShot1.src}
-              alt='dev'
-              width={1200}
-              height={900}
-              key={1}
-            />,
-            <Image
-              src={AndgamesShot2.src}
-              alt='dev'
-              width={1200}
-              height={900}
-              key={2}
-            />,
-            <Image
-              src={AndgamesShot3.src}
-              alt='dev'
-              width={1200}
-              height={900}
-              key={3}
-            />,
-            <Image
-              src={AndgamesShot4.src}
-              alt='dev'
-              width={1200}
-              height={900}
-              key={4}
-            />,
-          ]}
-        />
+        <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2'>
+          <LoopImagesGallery
+            images={[
+              <Image
+                src={AndgamesShot1.src}
+                alt='dev'
+                width={1244}
+                height={700}
+                className='h-full w-full object-contain'
+                key={1}
+              />,
+              <Image
+                src={AndgamesShot2.src}
+                alt='dev'
+                width={1244}
+                height={700}
+                className='h-full w-full object-contain'
+                key={2}
+              />,
+              <Image
+                src={AndgamesShot3.src}
+                alt='dev'
+                width={1244}
+                height={700}
+                className='h-full w-full object-cover'
+                key={3}
+              />,
+              <Image
+                src={AndgamesShot4.src}
+                alt='dev'
+                width={1244}
+                height={700}
+                className='h-full w-full object-cover'
+                key={4}
+              />,
+            ]}
+          />
+          <div className='flex flex-col items-start justify-center gap-3'>
+            <h2 className='text-3xl font-[800] [font-stretch:200%]'>&games</h2>
+            <div className='flex gap-2'>
+              <LinkButton
+                href='https://videogames-app-jeresc.vercel.app/'
+                text='Live Demo'
+              />
+              <LinkButton
+                href='https://github.com/jeresc/andgames'
+                text='Source Code'
+              />
+            </div>
+            <p>
+              This is a Single Page Application (SPA) frontend created with
+              React, Redux Toolkit, and Styled Components. The application
+              fetches video game data from the rawg.io API and also features its
+              own database to save new games.
+            </p>
+          </div>
+        </article>
       </section>
     </>
   )
