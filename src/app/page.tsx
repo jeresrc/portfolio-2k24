@@ -1,9 +1,14 @@
 import LandingTitle from '@/components/LandingTitle'
 import TextWithPopups from '@/components/TextWithPopups'
 import ThisIsFine from '@/assets/imgs/this-is-fine.gif'
+import AndgamesShot1 from '@/assets/imgs/andgames-shot-1.jpeg'
+import AndgamesShot2 from '@/assets/imgs/andgames-shot-2.jpg'
+import AndgamesShot3 from '@/assets/imgs/andgames-shot-3.jpg'
+import AndgamesShot4 from '@/assets/imgs/andgames-shot-4.jpg'
 import Image from 'next/image'
 import Chip from '@/components/Chip'
 import DarkModeButton from '@/components/DarkModeButton'
+import LoopImagesGallery from '@/components/LoopImagesGallery'
 
 export default function Home() {
   return (
@@ -17,7 +22,6 @@ export default function Home() {
             JERESC
           </h1>
 
-          {/* <LandingTitle /> */}
           <h2 className='inline-block font-merriweather text-4xl font-[400] leading-normal'>
             <TextWithPopups
               left={
@@ -60,20 +64,56 @@ export default function Home() {
       </section>
       <section>
         <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
+          EXPERIENCE
+        </h2>
+      </section>
+      <section>
+        <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
           PROJECTS
         </h2>
         <Image
-          width={400}
-          height={400}
+          width={1200}
+          height={900}
           src={ThisIsFine.src}
           alt='dev'
           className='h-full w-full object-cover'
         />
-      </section>
-      <section>
-        <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
-          EXPERIENCE
-        </h2>
+        <Image src={AndgamesShot1.src} alt='dev' width={1200} height={900} />
+        <Image src={AndgamesShot2.src} alt='dev' width={1200} height={900} />
+        <Image src={AndgamesShot3.src} alt='dev' width={1200} height={900} />
+        <Image src={AndgamesShot4.src} alt='dev' width={1200} height={900} />
+        <LoopImagesGallery
+          images={[
+            <Image
+              src={AndgamesShot1.src}
+              alt='dev'
+              width={1200}
+              height={900}
+              key={1}
+            />,
+            <Image
+              src={AndgamesShot2.src}
+              alt='dev'
+              width={1200}
+              height={900}
+              key={2}
+            />,
+            <Image
+              src={AndgamesShot3.src}
+              alt='dev'
+              width={1200}
+              height={900}
+              key={3}
+            />,
+            <Image
+              src={AndgamesShot4.src}
+              alt='dev'
+              width={1200}
+              height={900}
+              key={4}
+            />,
+          ]}
+        />
       </section>
     </>
   )

@@ -25,7 +25,7 @@ function Nav() {
           )}
         </NavLink>
         <NavLink href='#projects'>
-          Projects
+          Resume
           {linkSelected == 'projects' ? (
             <motion.div
               className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#0000] 
