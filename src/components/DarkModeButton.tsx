@@ -14,6 +14,7 @@ function DarkModeButton() {
         document?.querySelector('html')?.classList?.toggle('dark')
         toggleDarkMode()
       }}
+      aria-label='toggle dark mode'
     >
       <motion.div
         className='cursor-pointer'

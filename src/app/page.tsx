@@ -8,13 +8,13 @@ import AndgamesShot404 from '@/assets/imgs/andgames-shot-404.jpg'
 import RickAndMortyShot1 from '@/assets/imgs/rickandmorty-landing.jpeg'
 import RickAndMortyShot2 from '@/assets/imgs/rickandmorty-shot-2.jpg'
 import RickAndMortyShot3 from '@/assets/imgs/rickandmorty-shot-3.jpg'
-import RickAndMortyShot4 from '@/assets/imgs/rickandmorty-shot-4.jpg'
 import RickAndMortyShot5 from '@/assets/imgs/rickandmorty-shot-5.jpg'
 import Image from 'next/image'
 import Chip from '@/components/Chip'
 import DarkModeButton from '@/components/DarkModeButton'
 import LoopImagesGallery from '@/components/LoopImagesGallery'
 import LinkButton from '@/components/LinkButton'
+import AnimatedImage from '@/components/AnimatedImage'
 
 export default function Home() {
   return (
@@ -32,8 +32,9 @@ export default function Home() {
             <TextWithPopups
               left={
                 <Image
-                  width={200}
-                  height={200}
+                  width={20}
+                  height={20}
+                  quality={10}
                   src={ThisIsFine.src}
                   alt='dev'
                   className='h-full w-full object-cover'
@@ -69,62 +70,48 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
+        <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
           EXPERIENCE
         </h2>
       </section>
       <section>
-        <h2 className='mt-6 text-4xl font-[800] [font-stretch:200%]'>
+        <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
           PROJECTS
         </h2>
 
-        <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2'>
+        <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3'>
           <LoopImagesGallery
             images={[
-              <Image
+              <AnimatedImage
                 src={AndgamesShot1.src}
                 alt='andgames project Landing page screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-contain'
+                priority={true}
+                isCover={true}
                 key={1}
               />,
-              <Image
+              <AnimatedImage
                 src={AndgamesShot2.src}
                 alt='andgames project Home desktop screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-contain'
                 key={2}
               />,
-              <Image
+              <AnimatedImage
                 src={AndgamesShot3.src}
                 alt='andgames project Home mobile screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-cover'
                 key={3}
               />,
-              <Image
+              <AnimatedImage
                 src={AndgamesShot4.src}
                 alt='andgames project loading Home desktop screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-cover'
                 key={4}
               />,
-
-              <Image
+              <AnimatedImage
                 src={AndgamesShot404.src}
                 alt='andgames project loading Home desktop screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-cover'
                 key={5}
               />,
             ]}
           />
-          <div className='flex flex-col items-start justify-center gap-3'>
+          <div className='flex w-full flex-col items-start justify-center gap-3'>
             <h2 className='text-3xl font-[800] [font-stretch:200%]'>&games</h2>
             <div className='flex gap-2'>
               <LinkButton
@@ -151,11 +138,11 @@ export default function Home() {
             </h2>
             <div className='flex gap-2'>
               <LinkButton
-                href='https://videogames-app-jeresc.vercel.app/'
+                href='https://jeresc.github.io/rick-and-morty-app'
                 text='Live Demo'
               />
               <LinkButton
-                href='https://github.com/jeresc/andgames'
+                href='https://github.com/jeresc/rick-and-morty-app'
                 text='Source Code'
               />
             </div>
@@ -168,46 +155,27 @@ export default function Home() {
           </div>
           <LoopImagesGallery
             images={[
-              <Image
+              <AnimatedImage
                 src={RickAndMortyShot1.src}
+                isCover={true}
+                priority={true}
                 alt='andgames project Landing page screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-contain'
                 key={1}
               />,
-              <Image
+              <AnimatedImage
                 src={RickAndMortyShot2.src}
                 alt='andgames project Home desktop screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-contain'
                 key={2}
               />,
-              <Image
-                src={RickAndMortyShot4.src}
-                alt='andgames project loading Home desktop screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-cover'
-                key={4}
-              />,
-              <Image
+              <AnimatedImage
                 src={RickAndMortyShot3.src}
                 alt='andgames project Home mobile screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-cover'
                 key={3}
               />,
-
-              <Image
+              <AnimatedImage
                 src={RickAndMortyShot5.src}
                 alt='andgames project loading Home desktop screenshot'
-                width={1244}
-                height={700}
-                className='h-full w-full object-cover'
-                key={5}
+                key={4}
               />,
             ]}
           />

@@ -22,23 +22,30 @@ function LoopImagesGallery({ images }: IProps) {
           ? setCurrentImage(1)
           : setCurrentImage((currentImage + 1) % images.length)
         : setCurrentImage(0)
-    }, 700)
+    }, 1000)
     return () => {
       clearInterval(interval)
     }
   }, [currentImage, images, isHovering, isInView, width])
 
   return (
-    <motion.figure
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      ref={ref}
-      className='h-full w-full cursor-pointer overflow-hidden rounded-lg object-cover shadow-lg'
-    >
-      {images[currentImage]}
-    </motion.figure>
+    <>
+      <motion.figure
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        ref={ref}
+        className='h-full w-full cursor-pointer overflow-hidden rounded-lg object-cover shadow-lg'
+      >
+        <AnimatePresence mode='popLayout'>
+          {images[currentImage]}
+        </AnimatePresence>
+      </motion.figure>
+      <div className='absolute h-0 w-0 opacity-0'>
+        {images[currentImage + 1]}
+      </div>
+    </>
   )
 }
 

@@ -28,13 +28,14 @@ function LinkButton({ href, text }: IProps) {
     >
       {text}
 
-      <motion.img
+      <MotionImage
         src={LinkArrowSvg.src}
         alt='link-arrow'
         width={16}
         height={16}
         animate={isHovering ? { x: 4, y: -4 } : { x: 0, y: 0 }}
         transition={{ duration: 0.2 }}
+        priority
         className='ml-0.5 fill-black dark:fill-white'
         layoutId='link-arrow'
       />
