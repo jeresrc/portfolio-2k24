@@ -1,36 +1,10 @@
 'use client'
+import { useDarkMode } from '@/hooks/useDarkMode'
 import { motion } from 'framer-motion'
-import React, { useCallback, useEffect, useState } from 'react'
+import React from 'react'
 
 function DarkModeButton() {
-  const [darkMode, setDarkMode] = useState<null | boolean>(null)
-
-  const turnOffDarkMode = useCallback(() => {
-    setDarkMode(false)
-    document.querySelector('html')?.classList?.remove('dark')
-    localStorage.setItem('theme', 'light')
-  }, [])
-
-  const turnOnDarkMode = useCallback(() => {
-    setDarkMode(true)
-    document.querySelector('html')?.classList?.add('dark')
-    localStorage.setItem('theme', 'dark')
-  }, [])
-
-  const toggleDarkMode = () => (darkMode ? turnOffDarkMode() : turnOnDarkMode())
-
-  const onWindowMatch = useCallback(() => {
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) &&
-      window?.matchMedia('(prefers-color-scheme: dark)').matches)
-      ? turnOnDarkMode()
-      : turnOffDarkMode()
-  }, [turnOffDarkMode, turnOnDarkMode])
-
-  useEffect(() => {
-    setDarkMode(localStorage.theme === 'dark')
-    onWindowMatch()
-  }, [onWindowMatch])
+  const [darkMode, toggleDarkMode] = useDarkMode()
 
   return (
     <button onClick={toggleDarkMode} aria-label='toggle dark mode'>

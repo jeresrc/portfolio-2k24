@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config: Config = {
   content: [
@@ -7,10 +8,14 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      xs: '480px',
+      ...defaultTheme.screens,
+    },
     fontFamily: {
-      montserrat: ['Montserrat'],
-      monaSans: ['Mona Sans'],
-      merriweather: ['Merriweather'],
+      montserrat: ['var(--font-montserrat)'],
+      monaSans: ['var(--font-mona-sans)'],
+      merriweather: ['var(--font-merriweather)'],
     },
     extend: {
       backgroundImage: {

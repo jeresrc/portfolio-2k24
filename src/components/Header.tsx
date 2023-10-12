@@ -10,11 +10,8 @@ function Header() {
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (positionY) => {
-    if (positionY > 140) {
-      setScrolled(true)
-    } else {
-      setScrolled(false)
-    }
+    if (positionY > 140) setScrolled(true)
+    else setScrolled(false)
   })
 
   const variants = {

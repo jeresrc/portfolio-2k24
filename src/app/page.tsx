@@ -22,7 +22,7 @@ export default function Home() {
       <section className='flex flex-wrap justify-between'>
         <hgroup className='flex flex-col items-start justify-center'>
           <h1
-            className='title-h1 text-[4.1rem] font-[800] leading-none [font-stretch:200%] sm:text-8xl'
+            className='title-h1 xs:text-8xl text-[4.1rem] font-[800] leading-none [font-stretch:200%]'
             id='home'
           >
             JERESC
