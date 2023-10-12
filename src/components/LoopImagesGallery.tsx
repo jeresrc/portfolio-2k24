@@ -16,13 +16,15 @@ function LoopImagesGallery({ images }: IProps) {
   const isInView = useInView(ref, { amount: 'all' })
 
   useEffect(() => {
+    currentImage == 0 && isHovering && setCurrentImage(1)
+
     const interval = setInterval(() => {
       isHovering || (width < 768 && isInView)
         ? currentImage === images.length - 1
           ? setCurrentImage(1)
           : setCurrentImage((currentImage + 1) % images.length)
         : setCurrentImage(0)
-    }, 1000)
+    }, 900)
     return () => {
       clearInterval(interval)
     }
@@ -36,7 +38,7 @@ function LoopImagesGallery({ images }: IProps) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         ref={ref}
-        className='h-full w-full cursor-pointer overflow-hidden rounded-lg object-cover shadow-lg'
+        className='h-full w-full cursor-pointer overflow-hidden rounded-lg shadow-lg'
       >
         <AnimatePresence mode='popLayout'>
           {images[currentImage]}

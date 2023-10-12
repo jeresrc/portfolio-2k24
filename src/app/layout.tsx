@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' className='dark'>
       <body
         className={
           monaSans.className +
@@ -43,7 +43,7 @@ export default function RootLayout({
           merriweather.className +
           ' ' +
           montserrat.className +
-          ' bg-white dark:bg-[#121212]'
+          ' bg-white transition-colors duration-700 dark:bg-[#121212]'
         }
       >
         <Header />

@@ -1,21 +1,39 @@
 'use client'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 function DarkModeButton() {
-  const [darkMode, setDarkMode] = useState(false)
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
+  const [darkMode, setDarkMode] = useState<null | boolean>(null)
+
+  const turnOffDarkMode = useCallback(() => {
+    setDarkMode(false)
+    document.querySelector('html')?.classList?.remove('dark')
+    localStorage.setItem('theme', 'light')
+  }, [])
+
+  const turnOnDarkMode = useCallback(() => {
+    setDarkMode(true)
+    document.querySelector('html')?.classList?.add('dark')
+    localStorage.setItem('theme', 'dark')
+  }, [])
+
+  const toggleDarkMode = () => (darkMode ? turnOffDarkMode() : turnOnDarkMode())
+
+  const onWindowMatch = useCallback(() => {
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window?.matchMedia('(prefers-color-scheme: dark)').matches)
+      ? turnOnDarkMode()
+      : turnOffDarkMode()
+  }, [turnOffDarkMode, turnOnDarkMode])
+
+  useEffect(() => {
+    setDarkMode(localStorage.theme === 'dark')
+    onWindowMatch()
+  }, [onWindowMatch])
 
   return (
-    <button
-      onClick={() => {
-        document?.querySelector('html')?.classList?.toggle('dark')
-        toggleDarkMode()
-      }}
-      aria-label='toggle dark mode'
-    >
+    <button onClick={toggleDarkMode} aria-label='toggle dark mode'>
       <motion.div
         className='cursor-pointer'
         transition={{ type: 'spring', stiffness: 400, damping: 40 }}
@@ -39,56 +57,56 @@ function DarkModeButton() {
             width='24'
             height='24'
             viewBox='0 0 24 24'
-            stroke-width='2'
+            strokeWidth='2'
             stroke='currentColor'
             fill='none'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           >
             <path cx='12' cy='12' r='10' stroke='none' fill='none' />
             <path
               d='M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
             <path
               d='M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z'
-              stroke-width='0'
+              strokeWidth='0'
               fill='currentColor'
             />
           </svg>

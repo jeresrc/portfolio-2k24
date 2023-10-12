@@ -73,13 +73,15 @@ export default function Home() {
         <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
           EXPERIENCE
         </h2>
+        <h3>Front End Developer</h3>
+        <h4>Calm es simple</h4>
       </section>
       <section>
         <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
           PROJECTS
         </h2>
 
-        <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3'>
+        <article className='mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3'>
           <LoopImagesGallery
             images={[
               <AnimatedImage
@@ -111,7 +113,7 @@ export default function Home() {
               />,
             ]}
           />
-          <div className='flex w-full flex-col items-start justify-center gap-3'>
+          <div className='flex h-full w-full flex-col items-start justify-center gap-3'>
             <h2 className='text-3xl font-[800] [font-stretch:200%]'>&games</h2>
             <div className='flex gap-2'>
               <LinkButton
@@ -131,8 +133,8 @@ export default function Home() {
             </p>
           </div>
         </article>
-        <article className='mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2'>
-          <div className='order-2 flex flex-col items-start justify-center gap-3 lg:order-[-1] lg:items-end lg:text-right'>
+        <article className='mt-6 grid h-full grid-cols-1 gap-4 lg:grid-cols-2'>
+          <div className='order-2 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1] lg:items-end lg:text-right'>
             <h2 className='text-3xl font-[800] [font-stretch:200%]'>
               Rick And Morty
             </h2>
