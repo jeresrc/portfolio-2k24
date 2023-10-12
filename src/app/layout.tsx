@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { Merriweather } from 'next/font/google'
 import localFont from 'next/font/local'
+import Footer from '@/components/Footer'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -48,7 +49,7 @@ export default function RootLayout({
       >
         <Header />
         <main className='mx-auto p-4'>{children}</main>
-        <div className='mt-96 min-h-screen'></div>
+        <Footer />
       </body>
     </html>
   )
