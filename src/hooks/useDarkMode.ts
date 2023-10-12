@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export const useDarkMode = () => {
-  const [darkMode, setDarkMode] = useState<null | boolean>(null)
+  const [darkMode, setDarkMode] = useState<boolean | null>(null)
 
   const turnOffDarkMode = useCallback(() => {
     setDarkMode(false)
@@ -36,5 +36,5 @@ export const useDarkMode = () => {
     onWindowMatch()
   }, [onWindowMatch])
 
-  return [darkMode, toggleDarkMode]
+  return { darkMode, toggleDarkMode }
 }

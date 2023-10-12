@@ -9,7 +9,7 @@ import React from 'react'
 const AnimatedSvg = motion(Image)
 
 function DarkModeButton() {
-  const [darkMode, toggleDarkMode] = useDarkMode()
+  const { toggleDarkMode, darkMode } = useDarkMode()
 
   return (
     <button
