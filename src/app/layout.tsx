@@ -44,6 +44,7 @@ export default function RootLayout({ children }: IProps) {
       <body className='bg-white transition-colors duration-700 dark:bg-[#121212]'>
         <Header />
         <main className='mx-auto p-4'>{children}</main>
+        <div className='m-96 min-h-screen' />
         <Footer />
       </body>
     </html>
