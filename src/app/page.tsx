@@ -55,7 +55,10 @@ export default function Home() {
             />
           </h2>
         </hgroup>
-        <div className='mt-1 flex h-fit max-w-md flex-wrap items-start justify-start gap-2 md:mt-3 md:justify-end'>
+        <div
+          className='mt-1 flex h-fit max-w-md flex-wrap items-start justify-start gap-2
+          fill-black dark:fill-white md:mt-3 md:justify-end'
+        >
           <Chip blur='lg' variant='primary'>
             jeremiastomassrc@gmail.com
           </Chip>
@@ -140,7 +143,7 @@ export default function Home() {
               <h2 className='text-3xl font-[800] [font-stretch:200%]'>
                 &games
               </h2>
-              <Logos names={['React', 'Nodejs', 'Cypress']} />
+              <Logos names={['React']} />
             </div>
             <div className='flex gap-2'>
               <LinkButton

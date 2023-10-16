@@ -1,12 +1,11 @@
 'use client'
 import { motion } from 'framer-motion'
-import Sun from '@/assets/svg/sun.svg'
-import Moon from '@/assets/svg/moon.svg'
-import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDarkModeStore } from '@/store/darkMode'
+import { Moon, Sun } from '@/assets/svg'
 
 function DarkModeButton() {
+  const [darkModeState, setDarkModeState] = useState<boolean | null>(null)
   const [
     darkMode,
     toggleDarkMode,
@@ -36,24 +35,21 @@ function DarkModeButton() {
   useEffect(() => {
     if (darkMode) document.documentElement.classList.add('dark')
     else document.documentElement.classList.remove('dark')
+    setDarkModeState(darkMode)
   }, [darkMode])
 
   return (
     <button
       onClick={toggleDarkMode}
       aria-label='toggle dark mode'
-      className='flex h-full w-full cursor-pointer items-center justify-center text-white'
+      className='flex h-full w-full cursor-pointer items-center justify-center'
     >
       <motion.div
         transition={{ type: 'spring', stiffness: 400, damping: 40 }}
         whileTap={{ rotate: 180, scale: 0.6 }}
+        className='h-6 w-6 fill-black dark:fill-white'
       >
-        <Image
-          src={darkMode ? Moon : Sun}
-          alt='toggle dark mode'
-          width={24}
-          height={24}
-        />
+        {darkModeState ? <Moon /> : <Sun />}
       </motion.div>
     </button>
   )
