@@ -2,7 +2,9 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface DarkModeState {
-  darkMode: boolean
+  darkMode: boolean | null
+  isFirstMount: boolean
+  setIsFirstMount: (state: boolean) => void
   toggleDarkMode: () => void
   turnDarkModeOn: () => void
   turnDarkModeOff: () => void
@@ -11,7 +13,9 @@ interface DarkModeState {
 export const useDarkModeStore = create<DarkModeState>()(
   persist(
     (set) => ({
-      darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+      darkMode: null,
+      isFirstMount: true,
+      setIsFirstMount: (state) => set({ isFirstMount: state }),
       toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
       turnDarkModeOn: () => set({ darkMode: true }),
       turnDarkModeOff: () => set({ darkMode: false }),
