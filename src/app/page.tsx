@@ -1,5 +1,6 @@
 import TextWithPopups from '@/components/TextWithPopups'
 import ThisIsFine from '@/assets/imgs/this-is-fine.gif'
+import CalmLogo from '@/assets/imgs/calm-logo.webp'
 import AndgamesShot1 from '@/assets/imgs/andgames-shot-1.jpeg'
 import AndgamesShot2 from '@/assets/imgs/andgames-shot-2.jpg'
 import AndgamesShot3 from '@/assets/imgs/andgames-shot-3.jpg'
@@ -15,6 +16,7 @@ import DarkModeButton from '@/components/DarkModeButton'
 import LoopImagesGallery from '@/components/LoopImagesGallery'
 import LinkButton from '@/components/LinkButton'
 import AnimatedImage from '@/components/AnimatedImage'
+import Logos from '@/components/Logos'
 
 export default function Home() {
   return (
@@ -22,7 +24,7 @@ export default function Home() {
       <section className='flex flex-wrap justify-between'>
         <hgroup className='flex flex-col items-start justify-center'>
           <h1
-            className='title-h1 xs:text-8xl text-[4.1rem] font-[800] leading-none [font-stretch:200%]'
+            className='title-h1 text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl'
             id='home'
           >
             JERESC
@@ -70,11 +72,31 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
+        <h2 className='mb-4 mt-6 text-4xl font-[800] [font-stretch:100%]'>
           EXPERIENCE
         </h2>
-        <h3>Front End Developer</h3>
-        <h4>Calm es simple</h4>
+        <ol className='relative pl-4'>
+          <picture className='absolute top-0 translate-x-[-50%] '>
+            <Image
+              src={CalmLogo.src}
+              alt='Calm es simple logo'
+              width={32}
+              height={32}
+            />
+          </picture>
+          <li className='flex'>
+            <div className='border-l-[1px] border-[#000] p-3 py-4 dark:border-[#fff]' />
+            <h3 className='text-2xl font-[800]'>Calm es simple</h3>
+          </li>
+          <li className='flex'>
+            <div className='border-l-[1px] border-[#000] p-2 dark:border-[#fff]' />
+            <p>Front End Web Developer</p>
+          </li>
+          <li className='flex'>
+            <div className='mr-2 max-h-[0] border-b-[1px] border-l-[1px] border-[#000] px-1 py-1.5 dark:border-[#fff]' />
+            <p>08-10-2022 - Present</p>
+          </li>
+        </ol>
       </section>
       <section>
         <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
@@ -114,7 +136,12 @@ export default function Home() {
             ]}
           />
           <div className='flex h-full w-full flex-col items-start justify-center gap-3'>
-            <h2 className='text-3xl font-[800] [font-stretch:200%]'>&games</h2>
+            <div className='flex w-full items-center justify-between'>
+              <h2 className='text-3xl font-[800] [font-stretch:200%]'>
+                &games
+              </h2>
+              <Logos names={['React', 'Nodejs', 'Cypress']} />
+            </div>
             <div className='flex gap-2'>
               <LinkButton
                 href='https://videogames-app-jeresc.vercel.app/'

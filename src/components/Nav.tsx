@@ -8,16 +8,16 @@ function Nav() {
 
   return (
     <nav
-      className='flex items-center justify-between rounded-2xl bg-[#eeec] text-black backdrop-blur-md
-      dark:bg-[#0004] dark:text-white'
+      className='flex items-center justify-between rounded-2xl bg-[#0004]
+     text-white backdrop-blur-md'
     >
-      <motion.ul className='flex gap-4'>
+      <motion.ul className='flex gap-2'>
         <NavLink href='#home'>
           Home
           {linkSelected == 'home' ? (
             <motion.div
               className='absolute left-0 top-0 h-full w-full rounded-2xl bg-[#fff0]
-              backdrop-contrast-[300%]'
+              backdrop-contrast-200 backdrop-saturate-200'
               layoutId='selected'
             />
           ) : (
