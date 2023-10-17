@@ -9,7 +9,7 @@ interface IProps {
   rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-function LinkButton({ href, text, rounded = 'xl' }: IProps) {
+function LinkButton({ href, text, rounded = 'lg' }: IProps) {
   const [isHovering, setIsHovering] = useState(false)
 
   return (

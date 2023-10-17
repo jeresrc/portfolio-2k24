@@ -17,6 +17,7 @@ import LoopImagesGallery from '@/components/LoopImagesGallery'
 import LinkButton from '@/components/LinkButton'
 import AnimatedImage from '@/components/AnimatedImage'
 import Logos from '@/components/Logos'
+import { Building, Map } from '@/assets/svg'
 
 export default function Home() {
   return (
@@ -75,11 +76,11 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <h2 className='mb-4 mt-6 text-4xl font-[800] [font-stretch:100%]'>
+        <h2 className='mb-4 mt-8 text-4xl font-[700] [font-stretch:100%]'>
           EXPERIENCE
         </h2>
         <ol className='relative pl-4'>
-          <picture className='absolute top-0 translate-x-[-50%] '>
+          <picture className='absolute top-0 -translate-x-1/2'>
             <Image
               src={CalmLogo.src}
               alt='Calm es simple logo'
@@ -90,7 +91,26 @@ export default function Home() {
           <li className='flex pl-6'>
             <h3 className='text-2xl font-[800]'>Calm es simple</h3>
           </li>
+          <li className='flex items-center gap-2 border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
+            <i className='h-4 w-4'>
+              <Building />
+            </i>
+            <p className='text-base font-normal'>Front End Web Developer </p>
+          </li>
+
+          <li className='flex items-center border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
+            <i className='h-4 w-4'>
+              <Map />
+            </i>
+            <p className='h-4 text-base font-normal'>
+              Front End Web Developer - 08-10-2022 - Present
+            </p>
+          </li>
+
           <li className='flex flex-col border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
+            <i className='h-4 w-4'>
+              <Map />
+            </i>
             <p className='text-base font-normal'>
               Front End Web Developer - 08-10-2022 - Present
             </p>
@@ -150,7 +170,7 @@ export default function Home() {
         </ol>
       </section>
       <section>
-        <h2 className='mt-6 text-4xl font-[800] [font-stretch:100%]'>
+        <h2 className='mt-12 text-4xl font-[700] [font-stretch:100%]'>
           PROJECTS
         </h2>
 
