@@ -17,7 +17,6 @@ import LoopImagesGallery from '@/components/LoopImagesGallery'
 import LinkButton from '@/components/LinkButton'
 import AnimatedImage from '@/components/AnimatedImage'
 import Logos from '@/components/Logos'
-import { JsLogo } from '@/assets/svg'
 
 export default function Home() {
   return (
@@ -89,19 +88,60 @@ export default function Home() {
             />
           </picture>
           <li className='flex'>
-            <div className='border-l-[1px] border-[#000] p-3 py-4 dark:border-[#fff]' />
+            <div className='border-l-[2px] border-[#bbb] p-3 py-4 dark:border-[#515151]' />
             <h3 className='text-2xl font-[800]'>Calm es simple</h3>
           </li>
-          <li className='flex'>
-            <div className='border-l-[1px] border-[#000] p-2 dark:border-[#fff]' />
-            <p>Front End Web Developer</p>
+          <li className='flex flex-col border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
+            <p className='text-base font-normal'>
+              Front End Web Developer - 08-10-2022 - Present
+            </p>
           </li>
-          <li className='flex'>
+          <li className='relative flex border-l-[2px] border-[#bbb] pb-2 pl-6 dark:border-[#515151]'>
+            {/* <div */}
+            {/*   className='absolute left-[-2px] top-10 mr-2 max-h-[0]  */}
+            {/*   rounded-bl-xl border-b-[2px] border-l-[2px] border-[#bbb] px-2 py-1.5 dark:border-[#fff]' */}
+            {/* /> */}
+            <div className='flex flex-col'>
+              <h4 className='text-lg font-bold'>Description</h4>
+              <p className='text-base'>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat, qui nobis consequatur in nihil, unde adipisci ullam
+                dolorem reiciendis corrupti tenetur magni quaerat nostrum? Ipsa
+                quod quia architecto nam unde!
+              </p>
+            </div>
+          </li>
+          <li className='relative flex border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
             <div
-              className='mr-2 max-h-[0] rounded-bl-lg border-b-[1px] 
-              border-l-[1px] border-[#000] px-1 py-1.5 dark:border-[#fff]'
+              className='mt-1 flex h-fit flex-wrap items-start justify-start gap-2
+          fill-black dark:fill-white md:mt-3 md:justify-end'
+            >
+              <Chip blur='lg' variant='primary' rounded='lg'>
+                Typescript
+              </Chip>
+              <Chip blur='lg' variant='primary' rounded='xl'>
+                Nextjs
+              </Chip>
+              <Chip blur='lg' variant='primary' rounded='xl'>
+                Redux
+              </Chip>
+              <Chip blur='lg' variant='primary' rounded='xl'>
+                Responsive Design
+              </Chip>
+              <Chip blur='lg' variant='primary' rounded='xl'>
+                Git & Github
+              </Chip>
+            </div>
+          </li>
+          <li className='relative flex'>
+            <div
+              className='mr-2 max-h-[0] rounded-bl-xl
+              border-b-[2px] border-l-[2px] border-[#bbb] px-2  py-2.5 dark:border-[#515151]'
             />
-            <p>08-10-2022 - Present</p>
+            <LinkButton
+              href='https://calmessimple.com.ar/'
+              text='Show Project'
+            />
           </li>
         </ol>
       </section>
@@ -173,7 +213,7 @@ export default function Home() {
               <h2 className='text-3xl font-[800] [font-stretch:150%]'>
                 Rick And Morty
               </h2>
-              <Logos names={['React', 'Redux']} />
+              <Logos names={['React', 'Redux', 'Vite']} />
             </div>
             <div className='flex gap-2'>
               <LinkButton

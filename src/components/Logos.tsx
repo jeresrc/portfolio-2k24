@@ -11,6 +11,7 @@ import {
   ReactLogo,
   ReduxLogo,
   TsLogo,
+  ViteLogo,
 } from '@/assets/svg'
 
 interface ILogos {
@@ -28,6 +29,7 @@ const logos: ILogos = {
   Redux: <ReduxLogo />,
   Jest: <JestLogo />,
   Astro: <AstroLogo />,
+  Vite: <ViteLogo />,
 }
 
 interface IProps {
