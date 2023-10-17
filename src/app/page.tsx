@@ -159,7 +159,7 @@ export default function Home() {
           <li className='relative flex'>
             <div
               className='mr-2 max-h-[0] rounded-bl-sm border-b-[2px] border-l-[2px] 
-              border-[#bbb] px-2  py-2.5 dark:border-[#515151]'
+              border-[#bbb] px-2 py-2.5 dark:border-[#515151]'
             />
             <LinkButton
               href='https://calmessimple.com.ar/'
@@ -208,7 +208,7 @@ export default function Home() {
               ]}
             />
           </picture>
-          <div className='col-span-3 flex h-full w-full flex-col items-start justify-center gap-3'>
+          <div className='col-span-2 flex h-full w-full flex-col items-start justify-center gap-3'>
             <div className='flex w-full items-center justify-between'>
               <h2 className='items-center text-3xl font-[800] [font-stretch:150%]'>
                 &games
@@ -235,8 +235,8 @@ export default function Home() {
         </article>
         <article className='mt-6 grid h-full grid-cols-1 gap-4 lg:grid-cols-5'>
           <div
-            className='order-2 col-span-3 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1]
-            lg:items-end lg:text-right'
+            className='order-2 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1] lg:col-start-2
+            lg:col-end-4 lg:items-end lg:text-right'
           >
             <div className='flex w-full items-center justify-between lg:flex-row-reverse'>
               <h2 className='text-3xl font-[800] [font-stretch:150%]'>
@@ -261,7 +261,7 @@ export default function Home() {
               own database to save new games.
             </p>
           </div>
-          <picture className='col-span-2'>
+          <picture className='lg:col-start-4 lg:col-end-6'>
             <LoopImagesGallery
               images={[
                 <AnimatedImage
