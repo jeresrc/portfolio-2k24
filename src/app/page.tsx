@@ -56,8 +56,8 @@ export default function Home() {
           </h2>
         </hgroup>
         <div
-          className='mt-1 flex h-fit max-w-md flex-wrap items-start justify-start gap-2
-          fill-black dark:fill-white md:mt-3 md:justify-end'
+          className='mt-1 flex h-fit max-w-sm flex-wrap items-start justify-start gap-2
+          fill-black dark:fill-white lg:mt-3 lg:justify-end'
         >
           <Chip blur='lg' variant='primary'>
             jeremiastomassrc@gmail.com
@@ -87,8 +87,7 @@ export default function Home() {
               height={32}
             />
           </picture>
-          <li className='flex'>
-            <div className='border-l-[2px] border-[#bbb] p-3 py-4 dark:border-[#515151]' />
+          <li className='flex pl-6'>
             <h3 className='text-2xl font-[800]'>Calm es simple</h3>
           </li>
           <li className='flex flex-col border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
@@ -97,10 +96,10 @@ export default function Home() {
             </p>
           </li>
           <li className='relative flex border-l-[2px] border-[#bbb] pb-2 pl-6 dark:border-[#515151]'>
-            {/* <div */}
-            {/*   className='absolute left-[-2px] top-10 mr-2 max-h-[0]  */}
-            {/*   rounded-bl-xl border-b-[2px] border-l-[2px] border-[#bbb] px-2 py-1.5 dark:border-[#fff]' */}
-            {/* /> */}
+            <div
+              className='absolute left-[-2px] top-0 mr-2 max-h-[0] 
+              rounded-bl-sm border-b-[2px] border-l-[2px] border-[#bbb] px-2 py-1.5 dark:border-[#515151]'
+            />
             <div className='flex flex-col'>
               <h4 className='text-lg font-bold'>Description</h4>
               <p className='text-base'>
@@ -113,34 +112,39 @@ export default function Home() {
           </li>
           <li className='relative flex border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
             <div
-              className='mt-1 flex h-fit flex-wrap items-start justify-start gap-2
+              className='absolute left-[-2px] top-2 mr-2 max-h-[0] 
+              rounded-bl-sm border-b-[2px]  border-l-[2px] border-[#bbb] px-2 py-2.5 dark:border-[#515151]'
+            />
+            <div
+              className='mt-1 flex h-fit flex-wrap items-start justify-start gap-1.5
           fill-black dark:fill-white md:mt-3 md:justify-end'
             >
-              <Chip blur='lg' variant='primary' rounded='lg'>
+              <Chip blur='lg' variant='primary' rounded='md'>
                 Typescript
               </Chip>
-              <Chip blur='lg' variant='primary' rounded='xl'>
+              <Chip blur='lg' variant='primary' rounded='md'>
                 Nextjs
               </Chip>
-              <Chip blur='lg' variant='primary' rounded='xl'>
+              <Chip blur='lg' variant='primary' rounded='md'>
                 Redux
               </Chip>
-              <Chip blur='lg' variant='primary' rounded='xl'>
+              <Chip blur='lg' variant='primary' rounded='md'>
                 Responsive Design
               </Chip>
-              <Chip blur='lg' variant='primary' rounded='xl'>
-                Git & Github
+              <Chip blur='lg' variant='primary' rounded='md'>
+                Git & GitHub
               </Chip>
             </div>
           </li>
           <li className='relative flex'>
             <div
-              className='mr-2 max-h-[0] rounded-bl-xl
-              border-b-[2px] border-l-[2px] border-[#bbb] px-2  py-2.5 dark:border-[#515151]'
+              className='mr-2 max-h-[0] rounded-bl-sm border-b-[2px] border-l-[2px] 
+              border-[#bbb] px-2  py-2.5 dark:border-[#515151]'
             />
             <LinkButton
               href='https://calmessimple.com.ar/'
               text='Show Project'
+              rounded='lg'
             />
           </li>
         </ol>
@@ -150,39 +154,41 @@ export default function Home() {
           PROJECTS
         </h2>
 
-        <article className='mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3'>
-          <LoopImagesGallery
-            images={[
-              <AnimatedImage
-                src={AndgamesShot1.src}
-                alt='andgames project Landing page screenshot'
-                priority={true}
-                isCover={true}
-                key={1}
-              />,
-              <AnimatedImage
-                src={AndgamesShot2.src}
-                alt='andgames project Home desktop screenshot'
-                key={2}
-              />,
-              <AnimatedImage
-                src={AndgamesShot3.src}
-                alt='andgames project Home mobile screenshot'
-                key={3}
-              />,
-              <AnimatedImage
-                src={AndgamesShot4.src}
-                alt='andgames project loading Home desktop screenshot'
-                key={4}
-              />,
-              <AnimatedImage
-                src={AndgamesShot404.src}
-                alt='andgames project loading Home desktop screenshot'
-                key={5}
-              />,
-            ]}
-          />
-          <div className='flex h-full w-full flex-col items-start justify-center gap-3'>
+        <article className='mt-4 grid grid-cols-1 gap-4 lg:grid-cols-5'>
+          <picture className='col-span-2'>
+            <LoopImagesGallery
+              images={[
+                <AnimatedImage
+                  src={AndgamesShot1.src}
+                  alt='andgames project Landing page screenshot'
+                  priority={true}
+                  isCover={true}
+                  key={1}
+                />,
+                <AnimatedImage
+                  src={AndgamesShot2.src}
+                  alt='andgames project Home desktop screenshot'
+                  key={2}
+                />,
+                <AnimatedImage
+                  src={AndgamesShot3.src}
+                  alt='andgames project Home mobile screenshot'
+                  key={3}
+                />,
+                <AnimatedImage
+                  src={AndgamesShot4.src}
+                  alt='andgames project loading Home desktop screenshot'
+                  key={4}
+                />,
+                <AnimatedImage
+                  src={AndgamesShot404.src}
+                  alt='andgames project loading Home desktop screenshot'
+                  key={5}
+                />,
+              ]}
+            />
+          </picture>
+          <div className='col-span-3 flex h-full w-full flex-col items-start justify-center gap-3'>
             <div className='flex w-full items-center justify-between'>
               <h2 className='items-center text-3xl font-[800] [font-stretch:150%]'>
                 &games
@@ -207,9 +213,12 @@ export default function Home() {
             </p>
           </div>
         </article>
-        <article className='mt-6 grid h-full grid-cols-1 gap-4 lg:grid-cols-2'>
-          <div className='order-2 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1] lg:items-end lg:text-right'>
-            <div className='flex w-full items-center justify-between'>
+        <article className='mt-6 grid h-full grid-cols-1 gap-4 lg:grid-cols-5'>
+          <div
+            className='order-2 col-span-3 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1]
+            lg:items-end lg:text-right'
+          >
+            <div className='flex w-full items-center justify-between lg:flex-row-reverse'>
               <h2 className='text-3xl font-[800] [font-stretch:150%]'>
                 Rick And Morty
               </h2>
@@ -232,32 +241,34 @@ export default function Home() {
               own database to save new games.
             </p>
           </div>
-          <LoopImagesGallery
-            images={[
-              <AnimatedImage
-                src={RickAndMortyShot1.src}
-                isCover={true}
-                priority={true}
-                alt='andgames project Landing page screenshot'
-                key={1}
-              />,
-              <AnimatedImage
-                src={RickAndMortyShot2.src}
-                alt='andgames project Home desktop screenshot'
-                key={2}
-              />,
-              <AnimatedImage
-                src={RickAndMortyShot3.src}
-                alt='andgames project Home mobile screenshot'
-                key={3}
-              />,
-              <AnimatedImage
-                src={RickAndMortyShot5.src}
-                alt='andgames project loading Home desktop screenshot'
-                key={4}
-              />,
-            ]}
-          />
+          <picture className='col-span-2'>
+            <LoopImagesGallery
+              images={[
+                <AnimatedImage
+                  src={RickAndMortyShot1.src}
+                  isCover={true}
+                  priority={true}
+                  alt='andgames project Landing page screenshot'
+                  key={1}
+                />,
+                <AnimatedImage
+                  src={RickAndMortyShot2.src}
+                  alt='andgames project Home desktop screenshot'
+                  key={2}
+                />,
+                <AnimatedImage
+                  src={RickAndMortyShot3.src}
+                  alt='andgames project Home mobile screenshot'
+                  key={3}
+                />,
+                <AnimatedImage
+                  src={RickAndMortyShot5.src}
+                  alt='andgames project loading Home desktop screenshot'
+                  key={4}
+                />,
+              ]}
+            />
+          </picture>
         </article>
       </section>
     </>

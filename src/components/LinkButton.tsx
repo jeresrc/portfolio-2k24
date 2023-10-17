@@ -6,16 +6,17 @@ import { motion } from 'framer-motion'
 interface IProps {
   href: string
   text: string
+  rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-function LinkButton({ href, text }: IProps) {
+function LinkButton({ href, text, rounded = 'xl' }: IProps) {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
     <motion.a
       href={href}
-      className='flex items-center rounded-xl border-[1px] border-[#0000] bg-[#0001]
-      px-2.5 py-1.5 hover:border-black dark:bg-[#fff1] dark:hover:border-white'
+      className={`flex items-center rounded-${rounded} border-[1px] border-[#0000] bg-[#0001]
+      px-2.5 py-1.5 hover:border-black dark:bg-[#fff1] dark:hover:border-white`}
       target='_blank'
       onMouseEnter={() => {
         setIsHovering(true)
