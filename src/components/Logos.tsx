@@ -1,11 +1,16 @@
 'use client'
 import React from 'react'
 import {
+  AstroLogo,
   CypressLogo,
   ExpressLogo,
+  JestLogo,
+  JsLogo,
   NextjsLogo,
   NodejsLogo,
   ReactLogo,
+  ReduxLogo,
+  TsLogo,
 } from '@/assets/svg'
 
 interface ILogos {
@@ -13,11 +18,16 @@ interface ILogos {
 }
 
 const logos: ILogos = {
+  Javascript: <JsLogo />,
+  Typescript: <TsLogo />,
   Express: <ExpressLogo />,
   Nextjs: <NextjsLogo />,
   Cypress: <CypressLogo />,
   Nodejs: <NodejsLogo />,
   React: <ReactLogo />,
+  Redux: <ReduxLogo />,
+  Jest: <JestLogo />,
+  Astro: <AstroLogo />,
 }
 
 interface IProps {

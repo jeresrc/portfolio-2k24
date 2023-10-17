@@ -17,6 +17,7 @@ import LoopImagesGallery from '@/components/LoopImagesGallery'
 import LinkButton from '@/components/LinkButton'
 import AnimatedImage from '@/components/AnimatedImage'
 import Logos from '@/components/Logos'
+import { JsLogo } from '@/assets/svg'
 
 export default function Home() {
   return (
@@ -96,7 +97,10 @@ export default function Home() {
             <p>Front End Web Developer</p>
           </li>
           <li className='flex'>
-            <div className='mr-2 max-h-[0] border-b-[1px] border-l-[1px] border-[#000] px-1 py-1.5 dark:border-[#fff]' />
+            <div
+              className='mr-2 max-h-[0] rounded-bl-lg border-b-[1px] 
+              border-l-[1px] border-[#000] px-1 py-1.5 dark:border-[#fff]'
+            />
             <p>08-10-2022 - Present</p>
           </li>
         </ol>
@@ -140,10 +144,10 @@ export default function Home() {
           />
           <div className='flex h-full w-full flex-col items-start justify-center gap-3'>
             <div className='flex w-full items-center justify-between'>
-              <h2 className='text-3xl font-[800] [font-stretch:200%]'>
+              <h2 className='items-center text-3xl font-[800] [font-stretch:150%]'>
                 &games
               </h2>
-              <Logos names={['React']} />
+              <Logos names={['React', 'Redux', 'Express', 'Jest', 'Cypress']} />
             </div>
             <div className='flex gap-2'>
               <LinkButton
@@ -165,9 +169,12 @@ export default function Home() {
         </article>
         <article className='mt-6 grid h-full grid-cols-1 gap-4 lg:grid-cols-2'>
           <div className='order-2 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1] lg:items-end lg:text-right'>
-            <h2 className='text-3xl font-[800] [font-stretch:200%]'>
-              Rick And Morty
-            </h2>
+            <div className='flex w-full items-center justify-between'>
+              <h2 className='text-3xl font-[800] [font-stretch:150%]'>
+                Rick And Morty
+              </h2>
+              <Logos names={['React', 'Redux']} />
+            </div>
             <div className='flex gap-2'>
               <LinkButton
                 href='https://jeresc.github.io/rick-and-morty-app'
