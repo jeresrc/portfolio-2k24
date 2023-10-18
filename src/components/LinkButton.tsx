@@ -9,7 +9,7 @@ interface IProps {
   rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-function LinkButton({ href, text, rounded = 'lg' }: IProps) {
+export function LinkButton({ href, text, rounded = 'lg' }: IProps) {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
@@ -37,5 +37,3 @@ function LinkButton({ href, text, rounded = 'lg' }: IProps) {
     </motion.a>
   )
 }
-
-export default LinkButton

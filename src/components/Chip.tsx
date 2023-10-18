@@ -5,7 +5,7 @@ interface IProps {
   rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-function Chip({ children, variant, blur, rounded = '2xl' }: IProps) {
+export function Chip({ children, variant, blur, rounded = '2xl' }: IProps) {
   return (
     <div
       className={`max-w-fit rounded-${rounded} px-4 py-1 ${`backdrop-blur-${blur}`} ${
@@ -19,5 +19,3 @@ function Chip({ children, variant, blur, rounded = '2xl' }: IProps) {
     </div>
   )
 }
-
-export default Chip

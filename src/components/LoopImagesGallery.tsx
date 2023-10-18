@@ -7,7 +7,7 @@ interface IProps {
   images: React.ReactNode[]
 }
 
-function LoopImagesGallery({ images }: IProps) {
+export function LoopImagesGallery({ images }: IProps) {
   const [currentImage, setCurrentImage] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
   const width = useWidth()

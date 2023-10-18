@@ -2,10 +2,9 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useState } from 'react'
 import Nav from './Nav'
-import Chip from './Chip'
-import DarkModeButton from './DarkModeButton'
+import { Chip, DarkModeButton } from '.'
 
-function Header() {
+export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const { scrollY } = useScroll()
 
@@ -37,5 +36,3 @@ function Header() {
     </motion.header>
   )
 }
-
-export default Header

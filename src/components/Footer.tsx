@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Footer() {
+export function Footer() {
   return (
     <footer
       className='flex w-full items-center justify-end gap-4 border-t-[1px] border-[#0004]
@@ -10,5 +10,3 @@ function Footer() {
     </footer>
   )
 }
-
-export default Footer

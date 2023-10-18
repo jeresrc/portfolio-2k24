@@ -12,7 +12,7 @@ interface IProps {
 
 const MotionImage = motion(Image)
 
-const AnimatedImage = forwardRef(function AnimatedImage(
+export const AnimatedImage = forwardRef(function AnimatedImage(
   { src, alt, priority, isCover }: IProps,
   ref: React.ForwardedRef<HTMLImageElement>
 ) {
@@ -33,5 +33,3 @@ const AnimatedImage = forwardRef(function AnimatedImage(
     />
   )
 })
-
-export default AnimatedImage

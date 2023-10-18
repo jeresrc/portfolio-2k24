@@ -1,9 +1,8 @@
-import Header from '@/components/Header'
+import { Footer, Header } from '@/components'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat, Merriweather } from 'next/font/google'
 import localFont from 'next/font/local'
-import Footer from '@/components/Footer'
 
 interface IProps {
   children: React.ReactNode

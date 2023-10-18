@@ -36,7 +36,7 @@ interface IProps {
   names: string[]
 }
 
-function Logos({ names }: IProps) {
+export function Logos({ names }: IProps) {
   return (
     <div
       className='flex h-fit w-fit justify-start gap-2
@@ -50,5 +50,3 @@ function Logos({ names }: IProps) {
     </div>
   )
 }
-
-export default Logos

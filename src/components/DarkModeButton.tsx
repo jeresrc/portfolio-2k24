@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useDarkModeStore } from '@/store/darkMode'
 import { Moon, Sun } from '@/assets/svg'
 
-function DarkModeButton() {
+export function DarkModeButton() {
   const [darkModeState, setDarkModeState] = useState<boolean | null>(null)
   const [
     darkMode,
@@ -46,6 +46,8 @@ function DarkModeButton() {
     >
       <motion.div
         transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+        initial={{ rotate: 180, scale: 0 }}
+        animate={{ rotate: 0, scale: 1, transition: { duration: 0.3 } }}
         whileTap={{ rotate: 180, scale: 0.6 }}
         className='h-6 w-6 fill-black dark:fill-white'
       >
@@ -54,5 +56,3 @@ function DarkModeButton() {
     </button>
   )
 }
-
-export default DarkModeButton

@@ -11,13 +11,15 @@ import RickAndMortyShot2 from '@/assets/imgs/rickandmorty-shot-2.jpg'
 import RickAndMortyShot3 from '@/assets/imgs/rickandmorty-shot-3.jpg'
 import RickAndMortyShot5 from '@/assets/imgs/rickandmorty-shot-5.jpg'
 import Image from 'next/image'
-import Chip from '@/components/Chip'
-import DarkModeButton from '@/components/DarkModeButton'
-import LoopImagesGallery from '@/components/LoopImagesGallery'
-import LinkButton from '@/components/LinkButton'
-import AnimatedImage from '@/components/AnimatedImage'
-import Logos from '@/components/Logos'
 import { Building, Map } from '@/assets/svg'
+import {
+  Chip,
+  DarkModeButton,
+  LinkButton,
+  Logos,
+  LoopImagesGallery,
+  AnimatedImage,
+} from '@/components'
 
 export default function Home() {
   return (
@@ -102,9 +104,7 @@ export default function Home() {
             <i className='h-4 w-4'>
               <Map />
             </i>
-            <p className='h-4 text-base font-normal'>
-              Front End Web Developer - 08-10-2022 - Present
-            </p>
+            <p className='h-4 text-base font-normal'>11.23 - 12.23</p>
           </li>
 
           <li className='flex flex-col border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
@@ -123,10 +123,11 @@ export default function Home() {
             <div className='flex flex-col'>
               <h4 className='text-lg font-bold'>Description</h4>
               <p className='text-base'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat, qui nobis consequatur in nihil, unde adipisci ullam
-                dolorem reiciendis corrupti tenetur magni quaerat nostrum? Ipsa
-                quod quia architecto nam unde!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
+                nostrum debitis ipsam repudiandae, nesciunt, consequuntur omnis
+                possimus iure dolorem, ipsum suscipit ex id. Ducimus aliquid
+                itaque dolorum non sint quas soluta enim nostrum optio laborum
+                totam, officiis blanditiis perferendis debitis.
               </p>
             </div>
           </li>

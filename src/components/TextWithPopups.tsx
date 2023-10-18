@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 interface IProps {
   left: string | React.ReactNode
@@ -9,7 +9,7 @@ interface IProps {
   variant: string
 }
 
-function TextWithPopups({ left, text, right, variant }: IProps) {
+export function TextWithPopups({ left, text, right, variant }: IProps) {
   const variantCreator = (variant: string, placement: string) => {
     const colors: { [key: string]: string } = {
       none: 'bg-transparent text-transparent',
