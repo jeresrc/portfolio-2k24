@@ -21,9 +21,9 @@ export function Nav() {
             ''
           )}
         </NavLink>
-        <NavLink href='#projects'>
+        <NavLink href='#resume'>
           Resume
-          {linkSelected == 'projects' ? (
+          {linkSelected == 'resume' ? (
             <motion.span
               className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
               bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
@@ -33,7 +33,7 @@ export function Nav() {
             ''
           )}
         </NavLink>
-        <NavLink href='#contact'>
+        <NavLink href='mailto:jeremiastomassrc@gmail.com'>
           Contact
           {linkSelected == 'contact' ? (
             <motion.span

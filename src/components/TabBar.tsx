@@ -34,10 +34,10 @@ export function TabBar() {
             <NavLink href='#home'>
               <House />
             </NavLink>
-            <NavLink href='#projects'>
+            <NavLink href='#resume'>
               <SuitCase />
             </NavLink>
-            <NavLink href='#contact'>
+            <NavLink href='mailto:jeremiastomassrc@gmail.com'>
               <Handshake />
             </NavLink>
           </motion.ul>

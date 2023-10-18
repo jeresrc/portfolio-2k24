@@ -30,12 +30,16 @@ const monaSans = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jeresc.vercel.app/'),
   title: 'jeresc - Front End Developer',
   description:
     'Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
+    shortcut: '/favicon-32x32.png',
+    192: '/android-chrome-192x192.png',
+    512: '/android-chrome-512x512.png',
   },
   openGraph: {
     title: 'Jeremias Soruco - Portfolio',

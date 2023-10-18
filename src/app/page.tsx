@@ -24,7 +24,7 @@ import {
 export default function Home() {
   return (
     <>
-      <section className='flex flex-wrap justify-between'>
+      <section className='flex flex-wrap justify-between' id='home'>
         <hgroup className='flex flex-col items-start justify-center'>
           <h1
             className='title-h1 text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl'
@@ -63,21 +63,31 @@ export default function Home() {
           fill-black dark:fill-white lg:mt-3 lg:justify-end'
         >
           <Chip blur='lg' variant='primary'>
-            jeremiastomassrc@gmail.com
-          </Chip>
-
-          <Chip blur='lg' variant='primary'>
-            GitHub
+            <a href='mailto:jeremiastomassrc@gmail.com'>
+              jeremiastomassrc@gmail.com
+            </a>
           </Chip>
           <Chip blur='lg' variant='primary'>
-            LinkedIn
+            <a href='https://github.com/jeresc' target='_blank'>
+              GitHub
+            </a>
+          </Chip>
+          <Chip blur='lg' variant='primary'>
+            <a href='https://www.linkedin.com/in/jeresc' target='_blank'>
+              LinkedIn
+            </a>
+          </Chip>
+          <Chip blur='lg' variant='primary'>
+            <a href='/CV_Full Stack Web Developer_Soruco Jeremias.pdf' download>
+              CV
+            </a>
           </Chip>
           <Chip blur='lg' variant='primary'>
             <DarkModeButton />
           </Chip>
         </div>
       </section>
-      <section>
+      <section id='resume'>
         <h2 className='mb-4 mt-8 text-4xl font-[700] [font-stretch:100%]'>
           EXPERIENCE
         </h2>
