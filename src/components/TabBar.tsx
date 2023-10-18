@@ -1,41 +1,48 @@
 'use client'
-import { motion } from 'framer-motion'
-import React from 'react'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import React, { useState } from 'react'
 import { NavLink } from '.'
 import { Handshake, House, SuitCase } from '@/assets/svg'
+import { useWidth } from '@/hooks/useWidth'
 
 export function TabBar() {
+  const [scrolled, setScrolled] = useState(false)
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, 'change', (positionY) => {
+    if (positionY > 140) setScrolled(true)
+    else setScrolled(false)
+  })
+
+  const variants = {
+    hidden: { y: 40 },
+    show: { y: -10 },
+  }
+  const width = useWidth()
   return (
-    <nav
-      className='fixed bottom-2 left-0 right-0 mx-auto flex w-fit
-      items-center justify-between rounded-2xl bg-[#fff4] text-black backdrop-blur-md dark:bg-[#0004] dark:text-white'
-    >
-      <motion.ul className='flex h-11 gap-2 fill-white'>
-        <NavLink href='#home'>
-          <House />
-          <motion.span
-            className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
-            bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
-            layoutId='selected'
-          />
-        </NavLink>
-        <NavLink href='#projects'>
-          <SuitCase />
-          <motion.span
-            className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
-            bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
-            layoutId='selected'
-          />
-        </NavLink>
-        <NavLink href='#contact'>
-          <Handshake />
-          <motion.span
-            className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
-            bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
-            layoutId='selected'
-          />
-        </NavLink>
-      </motion.ul>
-    </nav>
+    <>
+      {width < 768 && (
+        <motion.nav
+          variants={variants}
+          animate={scrolled ? 'show' : 'hidden'}
+          transition={{ type: 'spring', damping: 50, stiffness: 600 }}
+          initial='hidden'
+          className='fixed bottom-0 left-0 right-0 mx-auto flex w-fit
+      items-center justify-between rounded-2xl bg-[#fff4] text-black backdrop-blur-md dark:bg-[#0004] '
+        >
+          <motion.ul className='flex h-10 gap-2 fill-white text-white'>
+            <NavLink href='#home'>
+              <House />
+            </NavLink>
+            <NavLink href='#projects'>
+              <SuitCase />
+            </NavLink>
+            <NavLink href='#contact'>
+              <Handshake />
+            </NavLink>
+          </motion.ul>
+        </motion.nav>
+      )}
+    </>
   )
 }
