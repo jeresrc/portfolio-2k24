@@ -1,10 +1,11 @@
 'use client'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useState } from 'react'
-import Nav from './Nav'
-import { Chip, DarkModeButton } from '.'
+import { Chip, DarkModeButton, Nav } from '.'
+import { useWidth } from '@/hooks/useWidth'
 
 export function Header() {
+  const width = useWidth()
   const [scrolled, setScrolled] = useState(false)
   const { scrollY } = useScroll()
 
@@ -29,7 +30,7 @@ export function Header() {
       <Chip variant='secondary' blur='md'>
         <a href='#'>JERESC</a>
       </Chip>
-      <Nav />
+      {width > 768 && <Nav />}
       <Chip variant='secondary' blur='md'>
         <DarkModeButton />
       </Chip>

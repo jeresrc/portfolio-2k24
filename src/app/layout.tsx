@@ -1,4 +1,4 @@
-import { Footer, Header } from '@/components'
+import { Footer, Header, TabBar } from '@/components'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat, Merriweather } from 'next/font/google'
@@ -44,6 +44,7 @@ export default function RootLayout({ children }: IProps) {
         <Header />
         <main className='mx-auto max-w-7xl p-4'>{children}</main>
         <div className='m-96 min-h-screen' />
+        <TabBar />
         <Footer />
       </body>
     </html>

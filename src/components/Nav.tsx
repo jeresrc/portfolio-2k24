@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { useState } from 'react'
+import { NavLink } from './NavLink'
 
 export function Nav() {
   const [linkSelected, setLinkSelected] = useState<null | string>('home')
@@ -63,21 +63,3 @@ export function Nav() {
     </nav>
   )
 }
-
-function NavLink({
-  children,
-  href,
-}: {
-  children: React.ReactNode
-  href: string
-}) {
-  return (
-    <motion.li className='relative rounded-2xl px-2 py-1.5 hover:bg-[#fffc] hover:text-black'>
-      <Link href={href} className='relative'>
-        {children}
-      </Link>
-    </motion.li>
-  )
-}
-
-export default Nav
