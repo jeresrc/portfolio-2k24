@@ -32,7 +32,7 @@ const monaSans = localFont({
 export const metadata: Metadata = {
   title: 'jeresc - Front End Developer',
   description:
-    'Jeremias Soruco is a Front End Developer based in Buenos Aires, Argentina.',
+    'Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'jeresc - Front End Developer',
     description:
-      'Jeremias Soruco is a Front End Developer based in Buenos Aires, Argentina.',
+      'Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
     type: 'website',
     images: [
       {
