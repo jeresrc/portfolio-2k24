@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'jeresc - Front End Developer',
+    title: 'Jeremias Soruco - Portfolio',
     description:
-      'Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
+      'Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
     type: 'website',
     images: [
       {
