@@ -11,7 +11,7 @@ import RickAndMortyShot2 from '@/assets/imgs/rickandmorty-shot-2.jpg'
 import RickAndMortyShot3 from '@/assets/imgs/rickandmorty-shot-3.jpg'
 import RickAndMortyShot5 from '@/assets/imgs/rickandmorty-shot-5.jpg'
 import Image from 'next/image'
-import { Building, Map } from '@/assets/svg'
+import { Building, Calendar, Map } from '@/assets/svg'
 import {
   Chip,
   DarkModeButton,
@@ -104,27 +104,19 @@ export default function Home() {
             <h3 className='text-2xl font-[800]'>Calm es simple</h3>
           </li>
           <li className='flex items-center gap-2 border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
-            <i className='h-4 w-4'>
+            <i className='h-4 w-4 fill-black dark:fill-white'>
               <Building />
             </i>
-            <p className='text-base font-normal'>Front End Web Developer </p>
+            <p className='text-base font-normal'>Front End Developer </p>
           </li>
 
-          <li className='flex items-center border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
-            <i className='h-4 w-4'>
-              <Map />
+          <li className='flex items-center gap-2 border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
+            <i className='h-4 w-4 fill-black dark:fill-white'>
+              <Calendar />
             </i>
             <p className='h-4 text-base font-normal'>11.23 - 12.23</p>
           </li>
 
-          <li className='flex flex-col border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
-            <i className='h-4 w-4'>
-              <Map />
-            </i>
-            <p className='text-base font-normal'>
-              Front End Web Developer - 08-10-2022 - Present
-            </p>
-          </li>
           <li className='relative flex border-l-[2px] border-[#bbb] pb-2 pl-6 dark:border-[#515151]'>
             <div
               className='absolute left-[-2px] top-0 mr-2 max-h-[0] 
@@ -250,7 +242,7 @@ export default function Home() {
             lg:col-end-4 lg:items-end lg:text-right'
           >
             <div className='flex w-full items-center justify-between lg:flex-row-reverse'>
-              <h2 className='text-3xl font-[800] [font-stretch:150%]'>
+              <h2 className='text-3xl font-[800] sm:[font-stretch:150%]'>
                 Rick And Morty
               </h2>
               <Logos names={['React', 'Redux', 'Vite']} />

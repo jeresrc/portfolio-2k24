@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat, Merriweather } from 'next/font/google'
 import localFont from 'next/font/local'
+import { Analytics } from '@vercel/analytics/react'
 
 interface IProps {
   children: React.ReactNode
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: IProps) {
       <body className='bg-white transition-colors duration-700 dark:bg-[#121212]'>
         <Header />
         <main className='mx-auto max-w-7xl p-4'>{children}</main>
+        <Analytics />
         <div className='m-96 min-h-screen' />
         <TabBar />
         <Footer />
