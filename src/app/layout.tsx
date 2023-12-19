@@ -69,7 +69,6 @@ export default function RootLayout({ children }: IProps) {
         <Header />
         <main className='mx-auto max-w-7xl p-4'>{children}</main>
         <Analytics />
-        <div className='m-96 min-h-screen' />
         <TabBar />
         <Footer />
       </body>
