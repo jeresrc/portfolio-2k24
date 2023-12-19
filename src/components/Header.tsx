@@ -24,8 +24,8 @@ export function Header() {
       animate={scrolled ? 'show' : 'hidden'}
       transition={{ type: 'spring', damping: 50, stiffness: 600 }}
       initial='hidden'
-      className='fixed left-0 top-0 z-10 flex w-full justify-between px-4
-      font-bold text-white [font-stretch:expanded]'
+      className='fixed left-0 right-0 top-0 z-10 mx-auto flex w-full max-w-7xl
+      justify-between px-4 font-bold text-white [font-stretch:expanded]'
     >
       <Chip variant='secondary' blur='md'>
         <a href='#'>JERESC</a>

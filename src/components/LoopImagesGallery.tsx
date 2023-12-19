@@ -32,18 +32,18 @@ export function LoopImagesGallery({ images }: IProps) {
 
   return (
     <>
-      <motion.figure
+      <motion.picture
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         ref={ref}
-        className='h-full w-full cursor-pointer overflow-hidden rounded-lg shadow-lg'
+        className='h-full max-h-[520px] w-full max-w-[1050px] cursor-pointer overflow-hidden rounded-lg shadow-lg'
       >
         <AnimatePresence mode='popLayout'>
           {images[currentImage]}
         </AnimatePresence>
-      </motion.figure>
+      </motion.picture>
       <div className='absolute h-0 w-0 opacity-0'>
         {images[currentImage + 1]}
       </div>

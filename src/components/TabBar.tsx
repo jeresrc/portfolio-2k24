@@ -27,8 +27,7 @@ export function TabBar() {
           animate={scrolled ? 'show' : 'hidden'}
           transition={{ type: 'spring', damping: 50, stiffness: 600 }}
           initial='hidden'
-          className='fixed bottom-0 left-0 right-0 mx-auto flex w-fit
-      items-center justify-between rounded-2xl bg-[#fff4] text-black backdrop-blur-md dark:bg-[#0004] '
+          className='fixed bottom-0 left-0 right-0 mx-auto flex w-fit items-center justify-between rounded-2xl bg-[#0004] text-white backdrop-blur-md'
         >
           <motion.ul className='flex h-10 gap-2 fill-white text-white'>
             <NavLink href='#home'>

@@ -11,7 +11,7 @@ import RickAndMortyShot2 from '@/assets/imgs/rickandmorty-shot-2.jpg'
 import RickAndMortyShot3 from '@/assets/imgs/rickandmorty-shot-3.jpg'
 import RickAndMortyShot5 from '@/assets/imgs/rickandmorty-shot-5.jpg'
 import Image from 'next/image'
-import { Building, Calendar, Map } from '@/assets/svg'
+import { Building, Calendar } from '@/assets/svg'
 import {
   Chip,
   DarkModeButton,
@@ -27,13 +27,13 @@ export default function Home() {
       <section className='flex flex-wrap justify-between' id='home'>
         <hgroup className='flex flex-col items-start justify-center'>
           <h1
-            className='title-h1 text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl'
+            className='text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl'
             id='home'
           >
             JERESC
           </h1>
 
-          <h2 className='inline-block font-merriweather text-4xl font-[400] leading-normal'>
+          <h2 className='inline-block font-playfair text-4xl font-medium leading-none'>
             <TextWithPopups
               left={
                 <Image
@@ -59,8 +59,8 @@ export default function Home() {
           </h2>
         </hgroup>
         <div
-          className='mt-1 flex h-fit max-w-sm flex-wrap items-start justify-start gap-2
-          fill-black dark:fill-white lg:mt-3 lg:justify-end'
+          className='mt-4 flex h-fit max-w-sm flex-wrap items-start justify-start
+          gap-2 fill-black dark:fill-white lg:mt-3 lg:justify-end'
         >
           <Chip blur='lg' variant='primary'>
             <a href='mailto:jeremiastomassrc@gmail.com'>
@@ -176,9 +176,8 @@ export default function Home() {
         <h2 className='mt-12 text-4xl font-[700] [font-stretch:100%]'>
           PROJECTS
         </h2>
-
-        <article className='mt-4 grid grid-cols-1 gap-4 lg:grid-cols-5'>
-          <picture className='col-span-2'>
+        <article className='project'>
+          <figure className='col-span-2 h-full w-full'>
             <LoopImagesGallery
               images={[
                 <AnimatedImage
@@ -210,8 +209,8 @@ export default function Home() {
                 />,
               ]}
             />
-          </picture>
-          <div className='col-span-2 flex h-full w-full flex-col items-start justify-center gap-3'>
+          </figure>
+          <div className='project__info'>
             <div className='flex w-full items-center justify-between'>
               <h2 className='items-center text-3xl font-[800] [font-stretch:150%]'>
                 &games
@@ -236,11 +235,8 @@ export default function Home() {
             </p>
           </div>
         </article>
-        <article className='mt-6 grid h-full grid-cols-1 gap-4 lg:grid-cols-5'>
-          <div
-            className='order-2 flex h-full flex-col items-start justify-center gap-3 lg:order-[-1] lg:col-start-2
-            lg:col-end-4 lg:items-end lg:text-right'
-          >
+        <article className='project mt-6'>
+          <div className='project__info'>
             <div className='flex w-full items-center justify-between lg:flex-row-reverse'>
               <h2 className='text-3xl font-[800] sm:[font-stretch:150%]'>
                 Rick And Morty
@@ -264,7 +260,7 @@ export default function Home() {
               own database to save new games.
             </p>
           </div>
-          <picture className='lg:col-start-4 lg:col-end-6'>
+          <figure className='lg:col-start-4 lg:col-end-6'>
             <LoopImagesGallery
               images={[
                 <AnimatedImage
@@ -291,7 +287,7 @@ export default function Home() {
                 />,
               ]}
             />
-          </picture>
+          </figure>
         </article>
       </section>
     </>

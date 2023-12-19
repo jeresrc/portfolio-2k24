@@ -25,11 +25,12 @@ export const AnimatedImage = forwardRef(function AnimatedImage(
       initial={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 30, scale: 0.8 }}
       transition={{ duration: 0.4, type: 'spring' }}
-      {...(isCover
-        ? { width: 1050, height: 700 }
-        : { width: 850, height: 470 })}
+      // width={isCover ? 1050 : 850}
+      // height={isCover ? 700 : 470}
+      width={850}
+      height={470}
       {...(priority && { priority: true })}
-      className='h-full w-full rounded-lg object-cover'
+      className='aspect-video h-full w-full rounded-lg object-cover'
     />
   )
 })

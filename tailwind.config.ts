@@ -15,7 +15,7 @@ const config: Config = {
     fontFamily: {
       montserrat: ['var(--font-montserrat)'],
       monaSans: ['var(--font-mona-sans)'],
-      merriweather: ['var(--font-merriweather)'],
+      playfair: ['var(--font-playfair)'],
     },
     extend: {
       backgroundImage: {

@@ -1,7 +1,7 @@
 import { Footer, Header, TabBar } from '@/components'
-import './globals.css'
+import '@/styles/index.css'
 import type { Metadata } from 'next'
-import { Montserrat, Merriweather } from 'next/font/google'
+import { Montserrat, Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/react'
 
@@ -14,10 +14,10 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 })
 
-const merriweather = Merriweather({
-  weight: ['400', '700'],
+const playfair = Playfair_Display({
+  weight: ['400', '500', '700'],
   subsets: ['latin-ext'],
-  variable: '--font-merriweather',
+  variable: '--font-playfair',
 })
 
 const monaSans = localFont({
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: IProps) {
   return (
     <html
       lang='en'
-      className={`${montserrat.variable} ${merriweather.variable} ${monaSans.variable} dark`}
+      className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable} dark`}
     >
       <body className='bg-white transition-colors duration-700 dark:bg-[#121212]'>
         <Header />

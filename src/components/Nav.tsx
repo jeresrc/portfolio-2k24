@@ -7,7 +7,7 @@ export function Nav() {
   const [linkSelected, setLinkSelected] = useState<null | string>('home')
 
   return (
-    <nav className='flex items-center justify-between rounded-2xl bg-[#fff4] text-black backdrop-blur-md dark:bg-[#0004] dark:text-white'>
+    <nav className='flex items-center justify-between rounded-2xl bg-[#0004] text-white backdrop-blur-md'>
       <motion.ul className='flex gap-2'>
         <NavLink href='#home'>
           Home
