@@ -4,6 +4,7 @@ import {
   AstroLogo,
   CypressLogo,
   ExpressLogo,
+  FramerMotionLogo,
   JestLogo,
   JsLogo,
   NextjsLogo,
@@ -12,6 +13,7 @@ import {
   ReduxLogo,
   TsLogo,
   ViteLogo,
+  ZustandLogo,
 } from '@/assets/svg'
 
 interface ILogos {
@@ -30,6 +32,8 @@ const logos: ILogos = {
   Jest: <JestLogo />,
   Astro: <AstroLogo />,
   Vite: <ViteLogo />,
+  Zustand: <ZustandLogo />,
+  FramerMotion: <FramerMotionLogo />,
 }
 
 interface IProps {

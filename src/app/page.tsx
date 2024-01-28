@@ -10,6 +10,12 @@ import RickAndMortyShot1 from '@/assets/imgs/rickandmorty-landing.jpeg'
 import RickAndMortyShot2 from '@/assets/imgs/rickandmorty-shot-2.jpg'
 import RickAndMortyShot3 from '@/assets/imgs/rickandmorty-shot-3.jpg'
 import RickAndMortyShot5 from '@/assets/imgs/rickandmorty-shot-5.jpg'
+import FPDesktop1 from '@/assets/imgs/fp-desktop-1.png'
+import FPDesktop2 from '@/assets/imgs/fp-desktop-2.png'
+import FPMobile1 from '@/assets/imgs/fp-mobile-1.png'
+import FPMobile2 from '@/assets/imgs/fp-mobile-2.png'
+import FPMobile3 from '@/assets/imgs/fp-mobile-3.png'
+import FPCover from '@/assets/imgs/fp-cover.jpeg'
 import Image from 'next/image'
 import { Building, Calendar } from '@/assets/svg'
 import {
@@ -177,7 +183,66 @@ export default function Home() {
           PROJECTS
         </h2>
         <article className='project'>
-          <figure className='col-span-2 h-full w-full'>
+          <figure>
+            <LoopImagesGallery
+              images={[
+                <AnimatedImage
+                  src={FPCover.src}
+                  alt='andgames project Landing page screenshot'
+                  priority={true}
+                  isCover={true}
+                  key={1}
+                />,
+                <AnimatedImage
+                  src={FPDesktop1.src}
+                  alt='andgames project Home desktop screenshot'
+                  key={2}
+                />,
+                <AnimatedImage
+                  src={FPMobile1.src}
+                  alt='andgames project Home mobile screenshot'
+                  key={3}
+                />,
+                <AnimatedImage
+                  src={FPMobile2.src}
+                  alt='andgames project loading Home desktop screenshot'
+                  key={5}
+                />,
+
+                <AnimatedImage
+                  src={FPDesktop2.src}
+                  alt='andgames project loading Home desktop screenshot'
+                  key={4}
+                />,
+                <AnimatedImage
+                  src={FPMobile3.src}
+                  alt='andgames project loading Home desktop screenshot'
+                  key={5}
+                />,
+              ]}
+            />
+          </figure>
+          <section className='project__info'>
+            <header>
+              <h2>Franco Pisso</h2>
+              <Logos names={['Nextjs', 'FramerMotion', 'Zustand']} />
+            </header>
+            <div>
+              <LinkButton
+                href='https://francopisso.vercel.app/'
+                text='See website'
+              />
+            </div>
+            <p>
+              This is a modern website developed with Next.js, featuring smooth
+              animations powered by Framer Motion and efficient state management
+              through Zustand. This platform provides up-to-date information on
+              Professor Franco Pisso&apos;s books and oratory courses.
+            </p>
+          </section>
+        </article>
+        <article className='project mt-6'>
+          <figure>
             <LoopImagesGallery
               images={[
                 <AnimatedImage
@@ -210,14 +275,12 @@ export default function Home() {
               ]}
             />
           </figure>
-          <div className='project__info'>
-            <div className='flex w-full items-center justify-between'>
-              <h2 className='items-center text-3xl font-[800] [font-stretch:150%]'>
-                &games
-              </h2>
+          <section className='project__info'>
+            <header>
+              <h2>&games</h2>
               <Logos names={['React', 'Redux', 'Express', 'Jest', 'Cypress']} />
-            </div>
-            <div className='flex gap-2'>
+            </header>
+            <div>
               <LinkButton
                 href='https://videogames-app-jeresc.vercel.app/'
                 text='Live Demo'
@@ -233,34 +296,10 @@ export default function Home() {
               fetches video game data from the rawg.io API and also features its
               own database to save new games.
             </p>
-          </div>
+          </section>
         </article>
         <article className='project mt-6'>
-          <div className='project__info'>
-            <div className='flex w-full items-center justify-between lg:flex-row-reverse'>
-              <h2 className='text-3xl font-[800] sm:[font-stretch:150%]'>
-                Rick And Morty
-              </h2>
-              <Logos names={['React', 'Redux', 'Vite']} />
-            </div>
-            <div className='flex gap-2'>
-              <LinkButton
-                href='https://jeresc.github.io/rick-and-morty-app'
-                text='Live Demo'
-              />
-              <LinkButton
-                href='https://github.com/jeresc/rick-and-morty-app'
-                text='Source Code'
-              />
-            </div>
-            <p>
-              This is a Single Page Application (SPA) frontend created with
-              React, Redux Toolkit, and Styled Components. The application
-              fetches video game data from the rawg.io API and also features its
-              own database to save new games.
-            </p>
-          </div>
-          <figure className='lg:col-start-4 lg:col-end-6'>
+          <figure>
             <LoopImagesGallery
               images={[
                 <AnimatedImage
@@ -288,6 +327,28 @@ export default function Home() {
               ]}
             />
           </figure>
+          <section className='project__info'>
+            <header>
+              <h2>Rick And Morty</h2>
+              <Logos names={['React', 'Redux', 'Vite']} />
+            </header>
+            <div>
+              <LinkButton
+                href='https://jeresc.github.io/rick-and-morty-app'
+                text='Live Demo'
+              />
+              <LinkButton
+                href='https://github.com/jeresc/rick-and-morty-app'
+                text='Source Code'
+              />
+            </div>
+            <p>
+              This is a Single Page Application (SPA) frontend created with
+              React, Redux Toolkit, and Styled Components. The application
+              fetches video game data from the rawg.io API and also features its
+              own database to save new games.
+            </p>
+          </section>
         </article>
       </section>
     </>
