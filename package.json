@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.34",
+    "@studio-freight/tempus": "^0.0.44",
     "@vercel/analytics": "^1.1.1",
     "framer-motion": "^10.16.4",
     "next": "14.0.4",

@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@studio-freight/lenis':
+    specifier: ^1.0.34
+    version: 1.0.34
+  '@studio-freight/tempus':
+    specifier: ^0.0.44
+    version: 0.0.44
   '@vercel/analytics':
     specifier: ^1.1.1
     version: 1.1.1
@@ -297,6 +303,14 @@ packages:
   /@rushstack/eslint-patch@1.6.1:
     resolution: {integrity: sha512-UY+FGM/2jjMkzQLn8pxcHGMaVLh9aEitG3zY2CiY7XHdLiz3bZOwa6oDxNqEMv7zZkV+cj5DOdz0cQ1BP5Hjgw==}
     dev: true
+
+  /@studio-freight/lenis@1.0.34:
+    resolution: {integrity: sha512-sEyzEjfAsTlFgDebMYT5G7tlB0ZHhWkHEoJj0g7W0YYZO093Mh4MU65o1qbNKwRacspdU04ZrA+5Wxwt4dsS7Q==}
+    dev: false
+
+  /@studio-freight/tempus@0.0.44:
+    resolution: {integrity: sha512-ycSc+IY3PGtj7x1KwIJ1sacceQDA6ODzwlrm/1hODADVGS0l/rE5XH9NfyaHSYVECLBnJTdrU+AJiYtd39INXg==}
+    dev: false
 
   /@swc/helpers@0.5.2:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
