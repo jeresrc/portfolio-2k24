@@ -188,35 +188,35 @@ export default function Home() {
               images={[
                 <AnimatedImage
                   src={FPCover.src}
-                  alt='andgames project Landing page screenshot'
+                  alt='Franco Pisso project cover image'
                   priority={true}
                   isCover={true}
                   key={1}
                 />,
                 <AnimatedImage
                   src={FPDesktop1.src}
-                  alt='andgames project Home desktop screenshot'
+                  alt='Franco Pisso project desktop screenshot'
                   key={2}
                 />,
                 <AnimatedImage
                   src={FPMobile1.src}
-                  alt='andgames project Home mobile screenshot'
+                  alt='Franco Pisso project mobile screenshots'
                   key={3}
                 />,
                 <AnimatedImage
                   src={FPMobile2.src}
-                  alt='andgames project loading Home desktop screenshot'
+                  alt='Franco Pisso project course page mobile screenshot'
                   key={5}
                 />,
 
                 <AnimatedImage
                   src={FPDesktop2.src}
-                  alt='andgames project loading Home desktop screenshot'
+                  alt='Franco Pisso project course page desktop screenshot'
                   key={4}
                 />,
                 <AnimatedImage
                   src={FPMobile3.src}
-                  alt='andgames project loading Home desktop screenshot'
+                  alt='Franco Pisso project home page mobile screenshot'
                   key={5}
                 />,
               ]}
