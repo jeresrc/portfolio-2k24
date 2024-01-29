@@ -5,6 +5,7 @@ import { Montserrat, Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/react'
 import Lenify from '@/components/Lenify'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 interface IProps {
   children: React.ReactNode
@@ -66,12 +67,19 @@ export default function RootLayout({ children }: IProps) {
       lang='en'
       className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable} dark`}
     >
-      <body className='bg-white transition-colors duration-700 dark:bg-[#121212]'>
-        <Header />
-        <main className='mx-auto max-w-7xl p-4'>{children}</main>
-        <Analytics />
-        <TabBar />
-        <Footer />
+      <body className='bg-white dark:bg-[#121212]'>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main className='mx-auto max-w-7xl p-4'>{children}</main>
+          <Analytics />
+          <TabBar />
+          <Footer />
+        </ThemeProvider>
       </body>
       <Lenify />
     </html>

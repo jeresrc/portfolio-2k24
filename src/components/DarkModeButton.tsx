@@ -1,42 +1,15 @@
 'use client'
 import { motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
-import { useDarkModeStore } from '@/store/darkMode'
+import React from 'react'
 import { Moon, Sun } from '@/assets/svg'
+import { useTheme } from 'next-themes'
 
 export function DarkModeButton() {
-  const [darkModeState, setDarkModeState] = useState<boolean | null>(null)
-  const [
-    darkMode,
-    toggleDarkMode,
-    isFirstMount,
-    turnDarkModeOn,
-    turnDarkModeOff,
-    setIsFirstMount,
-  ] = useDarkModeStore((state) => [
-    state.darkMode,
-    state.toggleDarkMode,
-    state.isFirstMount,
-    state.turnDarkModeOn,
-    state.turnDarkModeOff,
-    state.setIsFirstMount,
-  ])
+  const { setTheme, theme } = useTheme()
 
-  useEffect(() => {
-    if (isFirstMount && darkMode == null) {
-      if (window?.matchMedia('(prefers-color-scheme: dark)')?.matches)
-        turnDarkModeOn()
-      else turnDarkModeOff()
-
-      setIsFirstMount(false)
-    }
-  }, [isFirstMount, turnDarkModeOn, turnDarkModeOff, darkMode, setIsFirstMount])
-
-  useEffect(() => {
-    if (darkMode) document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
-    setDarkModeState(darkMode)
-  }, [darkMode])
+  const toggleDarkMode = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
 
   return (
     <button
@@ -46,12 +19,19 @@ export function DarkModeButton() {
     >
       <motion.div
         transition={{ type: 'spring', stiffness: 400, damping: 40 }}
-        initial={{ rotate: 180, scale: 0 }}
+        // initial={{ rotate: 180, scale: 0 }}
+        initial={false}
         animate={{ rotate: 0, scale: 1, transition: { duration: 0.3 } }}
         whileTap={{ rotate: 180, scale: 0.6 }}
         className='h-6 w-6 fill-black dark:fill-white'
       >
-        {darkModeState ? <Moon /> : <Sun />}
+        <div className='hidden dark:block'>
+          <Moon />
+        </div>
+        <div className='dark:hidden'>
+          <Sun />
+        </div>
+        {/* <Moon /> <Sun /> */}
       </motion.div>
     </button>
   )
