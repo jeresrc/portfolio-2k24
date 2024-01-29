@@ -1,65 +1,51 @@
 'use client'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
-import { NavLink } from './NavLink'
+import {motion} from 'framer-motion'
+import {useEffect, useState} from 'react'
+import {NavLink} from './NavLink'
 
 export function Nav() {
   const [linkSelected, setLinkSelected] = useState<null | string>('home')
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.getBoundingClientRect().top < 0) {
+            setLinkSelected(entry.target.id)
+          }
+        })
+      },
+      {threshold: [0.2, 0.9]}
+    )
+
+    document.querySelectorAll('section').forEach((t) => {
+      if (!t.id) return
+      observer.observe(t)
+    })
+  }, [])
+
   return (
-    <nav className='flex items-center justify-between rounded-2xl bg-[#0004] text-white backdrop-blur-md'>
+    <nav className='hidden items-center justify-between rounded-2xl bg-[#0004] px-1 text-white backdrop-blur-md md:flex'>
       <motion.ul className='flex gap-2'>
-        <NavLink href='#home'>
+        <a href='#home' className='relative rounded-2xl px-2 py-1.5'>
           Home
-          {linkSelected == 'home' ? (
-            <motion.span
-              className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
-              bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
-              layoutId='selected'
-            />
-          ) : (
-            ''
+          {linkSelected == 'home' && (
+            <motion.span className='navlink--selected' layoutId='selected' />
           )}
-        </NavLink>
-        <NavLink href='#resume'>
+        </a>
+        <a href='#resume' className='relative rounded-2xl px-2 py-1.5'>
           Resume
-          {linkSelected == 'resume' ? (
-            <motion.span
-              className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
-              bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
-              layoutId='selected'
-            />
-          ) : (
-            ''
+          {linkSelected == 'resume' && (
+            <motion.span className='navlink--selected' layoutId='selected' />
           )}
-        </NavLink>
+        </a>
         <NavLink href='mailto:jeremiastomassrc@gmail.com'>
           Contact
-          {linkSelected == 'contact' ? (
-            <motion.span
-              className='absolute left-0 top-1 h-full w-full border-b-[2px] border-black
-              bg-[#0000] backdrop-contrast-200 backdrop-saturate-200 dark:border-white'
-              layoutId='selected'
-            />
-          ) : (
-            ''
+          {linkSelected == 'contact' && (
+            <motion.span className='navlink--selected' layoutId='selected' />
           )}
         </NavLink>
       </motion.ul>
-      <button
-        onClick={() =>
-          setLinkSelected(linkSelected == 'home' ? 'projects' : 'home')
-        }
-      >
-        A
-      </button>
-      <button
-        onClick={() =>
-          setLinkSelected(linkSelected == 'home' ? 'contact' : 'home')
-        }
-      >
-        B
-      </button>
     </nav>
   )
 }

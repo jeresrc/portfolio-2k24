@@ -1,6 +1,6 @@
 'use client'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import {motion} from 'framer-motion'
+import {useState} from 'react'
 
 interface IProps {
   left: string | React.ReactNode
@@ -9,9 +9,9 @@ interface IProps {
   variant: string
 }
 
-export function TextWithPopups({ left, text, right, variant }: IProps) {
+export function TextWithPopups({left, text, right, variant}: IProps) {
   const variantCreator = (variant: string, placement: string) => {
-    const colors: { [key: string]: string } = {
+    const colors: {[key: string]: string} = {
       none: 'bg-transparent text-transparent',
       red: 'bg-red-200 text-red-600',
       orange: 'bg-orange-200 text-orange-600',
@@ -82,7 +82,7 @@ export function TextWithPopups({ left, text, right, variant }: IProps) {
         animate={showPopups ? 'show' : 'hidden'}
         variants={leftVariants}
         initial='hidden'
-        transition={{ type: 'spring', damping: 30, stiffness: 1200 }}
+        transition={{type: 'spring', damping: 30, stiffness: 1200}}
       >
         {left}
       </motion.span>
@@ -99,7 +99,7 @@ export function TextWithPopups({ left, text, right, variant }: IProps) {
         animate={showPopups ? 'show' : 'hidden'}
         variants={rightVariants}
         initial='hidden'
-        transition={{ type: 'spring', damping: 30, stiffness: 1200 }}
+        transition={{type: 'spring', damping: 30, stiffness: 1200}}
       >
         {right}
       </motion.span>

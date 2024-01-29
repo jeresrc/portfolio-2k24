@@ -1,7 +1,7 @@
 'use client'
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 import Image from 'next/image'
-import React, { forwardRef } from 'react'
+import React, {forwardRef} from 'react'
 
 interface IProps {
   src: string
@@ -13,7 +13,7 @@ interface IProps {
 const MotionImage = motion(Image)
 
 export const AnimatedImage = forwardRef(function AnimatedImage(
-  { src, alt, priority, isCover }: IProps,
+  {src, alt, priority, isCover}: IProps,
   ref: React.ForwardedRef<HTMLImageElement>
 ) {
   return (
@@ -22,14 +22,14 @@ export const AnimatedImage = forwardRef(function AnimatedImage(
       src={src}
       alt={alt}
       layout='position'
-      initial={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 30, scale: 0.8 }}
-      transition={{ duration: 0.4, type: 'spring' }}
+      initial={{opacity: 1, y: 0, scale: 1}}
+      exit={{opacity: 0, y: 30, scale: 0.8}}
+      transition={{duration: 0.4, type: 'spring'}}
       // width={isCover ? 1050 : 850}
       // height={isCover ? 700 : 470}
       width={850}
       height={470}
-      {...(priority && { priority: true })}
+      {...(priority && {priority: true})}
       className='aspect-video h-full w-full rounded-lg object-cover'
     />
   )

@@ -17,7 +17,7 @@ import FPMobile2 from '@/assets/imgs/fp-mobile-2.png'
 import FPMobile3 from '@/assets/imgs/fp-mobile-3.png'
 import FPCover from '@/assets/imgs/fp-cover.jpeg'
 import Image from 'next/image'
-import { Building, Calendar } from '@/assets/svg'
+import {Building, Calendar} from '@/assets/svg'
 import {
   Chip,
   DarkModeButton,
@@ -33,7 +33,7 @@ export default function Home() {
       <section className='flex flex-wrap justify-between' id='home'>
         <hgroup className='flex flex-col items-start justify-center'>
           <h1
-            className='text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl'
+            className='font-monaSans text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl'
             id='home'
           >
             JERESC
@@ -93,8 +93,8 @@ export default function Home() {
           </Chip>
         </div>
       </section>
-      <section id='resume'>
-        <h2 className='mb-4 mt-8 text-4xl font-[700] [font-stretch:100%]'>
+      <section id='resume' className='mt-8'>
+        <h2 className='mb-4 text-4xl font-[700] [font-stretch:100%]'>
           EXPERIENCE
         </h2>
         <ol className='relative pl-4'>
@@ -179,7 +179,7 @@ export default function Home() {
         </ol>
       </section>
       <section>
-        <h2 className='mt-12 text-4xl font-[700] [font-stretch:100%]'>
+        <h2 className='pt-12 text-4xl font-[700] [font-stretch:100%]'>
           PROJECTS
         </h2>
         <article className='project'>

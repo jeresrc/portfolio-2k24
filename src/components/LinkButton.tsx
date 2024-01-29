@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react'
-import { LinkArrow } from '@/assets/svg'
-import { motion } from 'framer-motion'
+import React, {useState} from 'react'
+import {LinkArrow} from '@/assets/svg'
+import {motion} from 'framer-motion'
 
 interface IProps {
   href: string
@@ -9,7 +9,7 @@ interface IProps {
   rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-export function LinkButton({ href, text, rounded = 'lg' }: IProps) {
+export function LinkButton({href, text, rounded = 'lg'}: IProps) {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
@@ -28,8 +28,8 @@ export function LinkButton({ href, text, rounded = 'lg' }: IProps) {
       {text}
 
       <motion.div
-        animate={isHovering ? { x: 4, y: -4 } : { x: 0, y: 0 }}
-        transition={{ duration: 0.2 }}
+        animate={isHovering ? {x: 4, y: -4} : {x: 0, y: 0}}
+        transition={{duration: 0.2}}
         className='ml-0.5 h-4 w-4 fill-black dark:fill-white'
       >
         <LinkArrow />

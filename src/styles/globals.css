@@ -26,3 +26,7 @@ body {
     -apple-system,
     BlinkMacSystemFont;
 }
+
+.navlink--selected {
+  @apply absolute left-[calc(100%/10)] top-0.5 h-full w-5/6 border-b-[2px] border-white bg-[#0000];
+}

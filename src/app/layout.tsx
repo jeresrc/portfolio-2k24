@@ -1,11 +1,11 @@
-import { Footer, Header, TabBar } from '@/components'
+import {Footer, Header, TabBar} from '@/components'
 import '@/styles/index.css'
-import type { Metadata } from 'next'
-import { Montserrat, Playfair_Display } from 'next/font/google'
+import type {Metadata} from 'next'
+import {Montserrat, Playfair_Display} from 'next/font/google'
 import localFont from 'next/font/local'
-import { Analytics } from '@vercel/analytics/react'
+import {Analytics} from '@vercel/analytics/react'
 import Lenify from '@/components/Lenify'
-import { ThemeProvider } from '@/components/ThemeProvider'
+import {ThemeProvider} from '@/components/ThemeProvider'
 
 interface IProps {
   children: React.ReactNode
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: IProps) {
+export default function RootLayout({children}: IProps) {
   return (
     <html
       lang='en'

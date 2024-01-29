@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type {Config} from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config: Config = {
@@ -16,6 +16,7 @@ const config: Config = {
       montserrat: ['var(--font-montserrat)'],
       monaSans: ['var(--font-mona-sans)'],
       playfair: ['var(--font-playfair)'],
+      geist: ['var(--font-geist-mono)'],
     },
     extend: {
       backgroundImage: {

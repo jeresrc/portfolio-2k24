@@ -58,6 +58,33 @@ export function FramerMotionLogo() {
   )
 }
 
+export function Mail() {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      className='h-full w-full'
+      viewBox='2 -1  24 24'
+      strokeWidth='2'
+      stroke='currentColor'
+      fill='none'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    >
+      <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+      <path
+        d='M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z'
+        strokeWidth='0'
+        fill='currentColor'
+      />
+      <path
+        d='M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z'
+        strokeWidth='0'
+        fill='currentColor'
+      />
+    </svg>
+  )
+}
+
 export function ReactLogo() {
   return (
     <svg
@@ -358,11 +385,18 @@ export function House() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 576 512'
-      fill='currentColor'
+      viewBox='0 0 24 24'
+      strokeWidth={2}
       className='h-full w-full'
+      stroke='currentColor'
+      fill='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     >
-      <path d='M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z' />
+      <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+      <path d='M5 12l-2 0l9 -9l9 9l-2 0' />
+      <path d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7' />
+      <path d='M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6' />
     </svg>
   )
 }

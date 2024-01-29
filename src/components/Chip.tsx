@@ -5,10 +5,10 @@ interface IProps {
   rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-export function Chip({ children, variant, blur, rounded = '2xl' }: IProps) {
+export function Chip({children, variant, blur, rounded = '2xl'}: IProps) {
   return (
     <div
-      className={`max-w-fit rounded-${rounded} px-4 py-1 ${`backdrop-blur-${blur}`} ${
+      className={`flex max-w-fit items-center rounded-${rounded} px-4 py-1 ${`backdrop-blur-${blur}`} ${
         variant == 'primary'
           ? 'border-[1px] border-[#0004] dark:border-[#fff4]'
           : 'bg-[#0004]'
