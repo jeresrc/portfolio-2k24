@@ -39,12 +39,7 @@ export function Nav() {
             <motion.span className='navlink--selected' layoutId='selected' />
           )}
         </a>
-        <NavLink href='mailto:jeremiastomassrc@gmail.com'>
-          Contact
-          {linkSelected == 'contact' && (
-            <motion.span className='navlink--selected' layoutId='selected' />
-          )}
-        </NavLink>
+        <NavLink href='mailto:jeremiastomassrc@gmail.com'>Contact</NavLink>
       </motion.ul>
     </nav>
   )
