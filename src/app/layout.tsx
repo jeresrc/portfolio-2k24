@@ -65,7 +65,7 @@ export default function RootLayout({ children }: IProps) {
   return (
     <html
       lang='en'
-      className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable} dark`}
+      className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable}`}
     >
       <body className='bg-white dark:bg-[#121212]'>
         <ThemeProvider
