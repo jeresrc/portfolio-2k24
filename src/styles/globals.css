@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* font-size: clamp(10px, 0.666vw, 20px); */
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
+    /* font-size: clamp(10px, 0.666vw, 20px); */
+    /* --muted: 240 4.8% 95.9%; */
+    --muted: 240 4.8% 95.9%;
+    --border: #0004;
+    --background: #fff;
+  }
+  .dark {
+    --muted: 240 3.7% 15.9%;
+    --border: #fff4;
+    --background: #121212;
   }
 }
 
@@ -21,5 +27,31 @@ body {
 }
 
 .navlink--selected {
-  @apply absolute bottom-1.5 left-[calc(100%/6)] h-[2px] w-2/3 bg-[#fff];
+  /* @apply absolute bottom-1.5 left-[calc(100%/6)] h-[2px] w-2/3 bg-[#fff]; */
+  @apply absolute bottom-0 left-0 h-full w-full rounded-2xl border-[1px] border-[#fff4] bg-[#fff2];
+}
+
+.form__field {
+  @apply w-full;
+}
+
+.form__input {
+  @apply w-full rounded-md border-[1px] border-[#0004] bg-white px-4 py-2 text-black dark:border-[#fff4] dark:bg-[#121212] dark:text-[#f0f0f0];
+}
+
+.form__textarea {
+  @apply h-[220px] w-full rounded-md border-[1px] border-[#0004] bg-white px-4 py-2 text-black dark:border-[#fff4] dark:bg-[#121212] dark:text-[#f0f0f0];
+}
+
+/* className='mb-4 mt-8 grid grid-cols-1 gap-2 rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(0rad,#666_0,#999_20%,transparent_80%)] bg-origin-border p-4 [background-clip:padding-box,border-box]' */
+
+.form__container {
+  @apply mb-4 mt-8 grid grid-cols-1 gap-2 rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(var(--startDeg),var(--border)_0,transparent_100%)] bg-origin-border
+p-4 [background-clip:padding-box,border-box] md:grid-cols-2;
+  --startDeg: 0deg;
+
+  --border: #0004;
+  .dark & {
+    --border: #eee5;
+  }
 }

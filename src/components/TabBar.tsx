@@ -40,9 +40,9 @@ export function TabBar() {
           <a href='#resume' className='relative rounded-2xl px-2 py-1.5'>
             <SuitCase />
           </a>
-          <NavLink href='mailto:jeremiastomassrc@gmail.com'>
+          <a href='#contact' className='relative rounded-2xl px-2 py-1.5'>
             <Mail />
-          </NavLink>
+          </a>
         </motion.ul>
       </motion.nav>
     </>

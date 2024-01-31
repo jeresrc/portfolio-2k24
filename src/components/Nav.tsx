@@ -1,7 +1,6 @@
 'use client'
 import {motion} from 'framer-motion'
 import {useEffect, useState} from 'react'
-import {NavLink} from './NavLink'
 
 export function Nav() {
   const [linkSelected, setLinkSelected] = useState<null | string>('home')
@@ -10,12 +9,12 @@ export function Nav() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target.getBoundingClientRect().top < 0) {
+          if (entry.intersectionRatio > 0.1) {
             setLinkSelected(entry.target.id)
           }
         })
       },
-      {threshold: [0.2, 0.9]}
+      {threshold: [0, 1]}
     )
 
     document.querySelectorAll('section').forEach((t) => {
@@ -25,7 +24,7 @@ export function Nav() {
   }, [])
 
   return (
-    <nav className='hidden items-center justify-between rounded-2xl bg-[#0004] px-1 text-white backdrop-blur-md md:flex'>
+    <nav className='hidden items-center justify-between rounded-2xl bg-[#0004] text-white backdrop-blur-md md:flex'>
       <motion.ul className='flex gap-2'>
         <a href='#home' className='relative rounded-2xl px-2 py-1.5'>
           Home
@@ -39,7 +38,12 @@ export function Nav() {
             <motion.span className='navlink--selected' layoutId='selected' />
           )}
         </a>
-        <NavLink href='mailto:jeremiastomassrc@gmail.com'>Contact</NavLink>
+        <a href='#contact' className='relative rounded-2xl px-2 py-1.5'>
+          Contact
+          {linkSelected == 'contact' && (
+            <motion.span className='navlink--selected' layoutId='selected' />
+          )}
+        </a>
       </motion.ul>
     </nav>
   )

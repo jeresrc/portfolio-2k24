@@ -17,7 +17,6 @@ import FPMobile2 from '@/assets/imgs/fp-mobile-2.png'
 import FPMobile3 from '@/assets/imgs/fp-mobile-3.png'
 import FPCover from '@/assets/imgs/fp-cover.jpeg'
 import Image from 'next/image'
-import {Building, Calendar} from '@/assets/svg'
 import {
   Chip,
   DarkModeButton,
@@ -26,6 +25,7 @@ import {
   LoopImagesGallery,
   AnimatedImage,
 } from '@/components'
+import {ContactForm} from '@/components/ContactForm'
 
 export default function Home() {
   return (
@@ -109,18 +109,18 @@ export default function Home() {
           <li className='flex pl-6'>
             <h3 className='text-2xl font-[800]'>Calm es simple</h3>
           </li>
-          <li className='flex items-center gap-2 border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
-            <i className='h-4 w-4 fill-black dark:fill-white'>
-              <Building />
-            </i>
-            <p className='text-base font-normal'>Front End Developer </p>
-          </li>
+          <li className='flex flex-col justify-center gap-2 border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
+            <Chip blur='lg' variant='primary' rounded='md'>
+              <p className='text-base font-normal leading-none'>
+                Front End Web Developer
+              </p>
+            </Chip>
 
-          <li className='flex items-center gap-2 border-l-[2px] border-[#bbb] pb-1 pl-6 dark:border-[#515151]'>
-            <i className='h-4 w-4 fill-black dark:fill-white'>
-              <Calendar />
-            </i>
-            <p className='h-4 text-base font-normal'>11.23 - 12.23</p>
+            <Chip blur='lg' variant='primary' rounded='md'>
+              <p className='text-base font-normal leading-none'>
+                Aug 2023 to Sept 2023
+              </p>
+            </Chip>
           </li>
 
           <li className='relative flex border-l-[2px] border-[#bbb] pb-2 pl-6 dark:border-[#515151]'>
@@ -131,11 +131,7 @@ export default function Home() {
             <div className='flex flex-col'>
               <h4 className='text-lg font-bold'>Description</h4>
               <p className='text-base'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                nostrum debitis ipsam repudiandae, nesciunt, consequuntur omnis
-                possimus iure dolorem, ipsum suscipit ex id. Ducimus aliquid
-                itaque dolorum non sint quas soluta enim nostrum optio laborum
-                totam, officiis blanditiis perferendis debitis.
+                I was working as a Front End Web Developer in Calm es simple.
               </p>
             </div>
           </li>
@@ -172,16 +168,14 @@ export default function Home() {
             />
             <LinkButton
               href='https://calmessimple.com.ar/'
-              text='Show Project'
+              text='See website'
               rounded='lg'
             />
           </li>
         </ol>
       </section>
-      <section>
-        <h2 className='pt-12 text-4xl font-[700] [font-stretch:100%]'>
-          PROJECTS
-        </h2>
+      <section className='mt-8 flex flex-col gap-2'>
+        <h2 className='text-4xl font-[700] [font-stretch:100%]'>PROJECTS</h2>
         <article className='project'>
           <figure>
             <LoopImagesGallery

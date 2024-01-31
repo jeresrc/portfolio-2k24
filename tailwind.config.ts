@@ -27,6 +27,10 @@ const config: Config = {
       colors: {
         primary: '#fff',
         secondary: '#121212',
+        background: 'var(--background)',
+        input: 'hsl(240,5.9%,90%)',
+        muted: 'hsl(var(--muted))',
+        border: 'var(--border)',
       },
     },
   },

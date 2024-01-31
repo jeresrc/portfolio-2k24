@@ -9,6 +9,7 @@ import {ThemeProvider} from '@/components/ThemeProvider'
 
 interface IProps {
   children: React.ReactNode
+  contact: React.ReactNode
 }
 
 const montserrat = Montserrat({
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({children}: IProps) {
+export default function RootLayout({children, contact}: IProps) {
   return (
     <html
       lang='en'
@@ -75,7 +76,10 @@ export default function RootLayout({children}: IProps) {
           disableTransitionOnChange
         >
           <Header />
-          <main className='mx-auto max-w-7xl p-4'>{children}</main>
+          <main className='mx-auto max-w-7xl p-4'>
+            {children}
+            {contact}
+          </main>
           <Analytics />
           <TabBar />
           <Footer />
