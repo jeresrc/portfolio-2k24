@@ -2,16 +2,15 @@
 import Tempus from '@studio-freight/tempus'
 import Lenis from '@studio-freight/lenis'
 import {useEffect, useLayoutEffect, useRef} from 'react'
-import {usePathname, useSearchParams} from 'next/navigation'
+import {usePathname} from 'next/navigation'
 
 export default function Lenify() {
   const lenis = useRef<Lenis | null>(null)
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     if (lenis.current) lenis.current!.scrollTo(0, {immediate: true})
-  }, [pathname, searchParams, lenis])
+  }, [pathname, lenis])
 
   useLayoutEffect(() => {
     lenis.current = new Lenis()
