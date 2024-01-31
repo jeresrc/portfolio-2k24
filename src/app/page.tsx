@@ -25,7 +25,6 @@ import {
   LoopImagesGallery,
   AnimatedImage,
 } from '@/components'
-import {ContactForm} from '@/components/ContactForm'
 
 export default function Home() {
   return (
@@ -110,13 +109,16 @@ export default function Home() {
             <h3 className='text-2xl font-[800]'>Calm es simple</h3>
           </li>
           <li className='flex flex-col justify-center gap-2 border-l-[2px] border-[#bbb] pb-3 pl-6 dark:border-[#515151]'>
-            <Chip blur='lg' variant='primary' rounded='md'>
-              <p className='text-base font-normal leading-none'>
-                Front End Web Developer
-              </p>
-            </Chip>
+            <p className='mt-1 text-base font-normal leading-none'>
+              Front End Web Developer
+            </p>
 
-            <Chip blur='lg' variant='primary' rounded='md'>
+            <Chip
+              blur='lg'
+              variant='primary'
+              rounded='md'
+              className='px-3 py-1.5'
+            >
               <p className='text-base font-normal leading-none'>
                 Aug 2023 to Sept 2023
               </p>

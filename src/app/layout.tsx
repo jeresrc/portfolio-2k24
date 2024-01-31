@@ -10,6 +10,7 @@ import {ThemeProvider} from '@/components/ThemeProvider'
 interface IProps {
   children: React.ReactNode
   contact: React.ReactNode
+  chatbot: React.ReactNode
 }
 
 const montserrat = Montserrat({
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({children, contact}: IProps) {
+export default function RootLayout({children, contact, chatbot}: IProps) {
   return (
     <html
       lang='en'
@@ -79,6 +80,7 @@ export default function RootLayout({children, contact}: IProps) {
           <main className='mx-auto max-w-7xl p-4'>
             {children}
             {contact}
+            {chatbot}
           </main>
           <Analytics />
           <TabBar />

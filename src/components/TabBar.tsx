@@ -1,7 +1,6 @@
 'use client'
 import {motion, useMotionValueEvent, useScroll} from 'framer-motion'
 import React, {useState} from 'react'
-import {NavLink} from '.'
 import {Mail, House, SuitCase} from '@/assets/svg'
 
 export function TabBar() {

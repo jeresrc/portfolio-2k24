@@ -36,7 +36,7 @@ body {
 }
 
 .form__input {
-  @apply w-full rounded-md border-[1px] border-[#0004] bg-white px-4 py-2 text-black dark:border-[#fff4] dark:bg-[#121212] dark:text-[#f0f0f0];
+  @apply w-full border-[1px] border-[#0004] bg-white px-4 py-2 text-black dark:border-[#fff4] dark:bg-[#121212] dark:text-[#f0f0f0];
 }
 
 .form__textarea {
@@ -46,8 +46,7 @@ body {
 /* className='mb-4 mt-8 grid grid-cols-1 gap-2 rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(0rad,#666_0,#999_20%,transparent_80%)] bg-origin-border p-4 [background-clip:padding-box,border-box]' */
 
 .form__container {
-  @apply mb-4 mt-8 grid grid-cols-1 gap-2 rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(var(--startDeg),var(--border)_0,transparent_100%)] bg-origin-border
-p-4 [background-clip:padding-box,border-box] md:grid-cols-2;
+  @apply rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(var(--startDeg),var(--border)_0,transparent_100%)] bg-origin-border [background-clip:padding-box,border-box];
   --startDeg: 0deg;
 
   --border: #0004;
@@ -55,3 +54,25 @@ p-4 [background-clip:padding-box,border-box] md:grid-cols-2;
     --border: #eee5;
   }
 }
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* mb-4 mt-8 grid grid-cols-1 gap-2 md:grid-cols-2 */
