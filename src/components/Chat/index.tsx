@@ -159,7 +159,7 @@ export function Chat({initialMessages}: ChatProps) {
             aria-label='Submit question'
             title='Submit question'
           >
-            {loading ? <Spin /> : <Plane />}
+            {loading ? <Spin className='animate-spin' /> : <Plane />}
           </button>
         </form>
       </FormContainer>
