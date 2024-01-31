@@ -6,6 +6,7 @@ import localFont from 'next/font/local'
 import {Analytics} from '@vercel/analytics/react'
 import Lenify from '@/components/Lenify'
 import {ThemeProvider} from '@/components/ThemeProvider'
+import SectionObersver from '@/components/SectionObserver'
 
 interface IProps {
   children: React.ReactNode
@@ -88,6 +89,7 @@ export default function RootLayout({children, contact, chatbot}: IProps) {
         </ThemeProvider>
       </body>
       <Lenify />
+      <SectionObersver />
     </html>
   )
 }

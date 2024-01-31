@@ -92,7 +92,7 @@ export function Chat({initialMessages}: ChatProps) {
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`min-w-0 max-w-[80%] rounded-md p-2 px-3 text-base text-black dark:text-white ${
+              className={`max-w-[80%] rounded-md p-2 px-3 text-base text-black dark:text-white ${
                 message.type === 'bot'
                   ? 'self-start bg-[#bbb3] text-left first:rounded-tl-none dark:bg-neutral-800'
                   : 'self-end bg-[#eee3] text-right first:rounded-tr-none dark:bg-neutral-700'

@@ -17,6 +17,10 @@
   }
 }
 
+* {
+  min-width: 0;
+}
+
 body {
   @apply bg-white text-[#121212] dark:bg-[#121212] dark:text-[#f0f0f0];
   font-family:
