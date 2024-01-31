@@ -143,7 +143,7 @@ export function Chat({initialMessages}: ChatProps) {
           <input
             className='form__input z-10 flex-1 rounded-md rounded-r-none border px-4 py-2 text-black'
             name='question'
-            placeholder='Who are you?'
+            placeholder='Ask me anything'
             type='text'
             value={question}
             onChange={(event) => setQuestion(event.target.value)}
