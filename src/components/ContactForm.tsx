@@ -120,7 +120,6 @@ export function ContactForm() {
       const dx = clientX - (x + 0.5 * width)
       const dy = clientY - (y + 0.5 * height)
       const angle = (Math.atan2(dy, dx) * 180) / Math.PI - 90
-      console.log({dx, dy, angle})
 
       springAngle.set(angle)
     },

@@ -87,15 +87,15 @@ export function Chat({initialMessages}: ChatProps) {
       <FormContainer className='m-auto mt-8 flex flex-col gap-4'>
         <div
           ref={container}
-          className='relative flex h-[480px] flex-col gap-1 overflow-y-auto p-4'
+          className='relative flex h-[480px] flex-col items-end justify-start gap-1 overflow-y-auto p-4'
         >
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`max-w-[80%] text-pretty rounded-md p-2 px-3 text-black dark:text-white ${
+              className={`min-w-0 max-w-[80%] rounded-md p-2 px-3 text-base text-black dark:text-white ${
                 message.type === 'bot'
                   ? 'self-start bg-[#bbb3] text-left first:rounded-tl-none dark:bg-neutral-800'
-                  : 'min-w-0 self-end bg-[#eee3] text-right first:rounded-tr-none dark:bg-neutral-700'
+                  : 'self-end bg-[#eee3] text-right first:rounded-tr-none dark:bg-neutral-700'
               }`}
             >
               {message.text}
