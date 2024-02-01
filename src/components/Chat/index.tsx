@@ -1,13 +1,14 @@
 'use client'
 
-import {Suspense, useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import {getChatAnswer} from './actions'
 import FormContainer from '../FormContainer'
-import {Plane, Spin} from '@/assets/svg'
+import {Plane, Spin, TailIn, TailOut} from '@/assets/svg'
 import {motion} from 'framer-motion'
 import {transition, variants} from './anim'
 import {useChatStore} from '@/store/chat'
+import {cn} from '@/utils/cn'
 
 interface ChatProps {
   initialMessages: string[]
@@ -72,17 +73,30 @@ export function Chat({initialMessages}: ChatProps) {
       <FormContainer className='m-auto mt-8 flex flex-col gap-4'>
         <div
           ref={container}
-          className='relative flex h-[480px] flex-col items-end justify-start gap-1 overflow-y-auto p-4'
+          className='relative flex h-[480px] flex-col items-end justify-start gap-1 overflow-y-auto p-4 px-6'
         >
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`max-w-[80%] rounded-md p-2 px-3 text-base text-black dark:text-white ${
+              className={cn(
+                'relative max-w-[80%] rounded-md p-2 px-3 text-base text-black dark:text-white',
                 message.type === 'bot'
-                  ? 'self-start bg-[#bbb3] text-left first:rounded-tl-none dark:bg-neutral-800'
-                  : 'self-end bg-[#eee3] text-right first:rounded-tr-none dark:bg-neutral-700'
-              }`}
+                  ? 'self-start rounded-tl-none bg-[#bbb3] text-left dark:bg-neutral-800'
+                  : 'self-end rounded-tr-none bg-[#eee3] text-right dark:bg-neutral-700',
+                messages.indexOf(message) === 1 && 'rounded-tl-md'
+              )}
             >
+              <span
+                className={cn(
+                  'absolute top-0 block h-[13px] w-2 rounded-b-sm',
+                  message.type === 'bot'
+                    ? '-left-2 text-[#f1f1f1] dark:text-neutral-800'
+                    : '-right-2 text-[#fcfcfc] dark:text-neutral-700',
+                  messages.indexOf(message) === 1 && 'hidden'
+                )}
+              >
+                {message.type === 'bot' ? <TailIn /> : <TailOut />}
+              </span>
               {message.text}
             </div>
           ))}

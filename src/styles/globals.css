@@ -34,6 +34,15 @@ body {
   @apply absolute bottom-0 left-0 h-full w-full rounded-2xl border-[1px] border-[#fff4] bg-[#fff2];
 }
 
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 8px 13px 8px;
+  border-color: transparent transparent var(--border) transparent;
+  transform: rotate(180deg);
+}
+
 .form__field {
   @apply w-full;
 }
