@@ -1,33 +1,37 @@
 'use client'
 
-import {useEffect, useRef, useState} from 'react'
+import {Suspense, useEffect, useRef, useState} from 'react'
 
 import {getChatAnswer} from './actions'
 import FormContainer from '../FormContainer'
 import {Plane, Spin} from '@/assets/svg'
-import {AnimatePresence, motion} from 'framer-motion'
+import {motion} from 'framer-motion'
 import {transition, variants} from './anim'
+import {useChatStore} from '@/store/chat'
 
 interface ChatProps {
   initialMessages: string[]
 }
 
 export function Chat({initialMessages}: ChatProps) {
-  const [messages, setMessages] = useState<
-    {
-      id: string
-      type: 'bot' | 'user'
-      text: string
-    }[]
-  >(() =>
-    initialMessages.length
-      ? initialMessages.map((message) => ({
-          id: message + Date.now(),
-          type: 'bot',
-          text: message,
-        }))
-      : []
-  )
+  const [messages, addMessage, setMessages] = useChatStore((store) => [
+    store.messages,
+    store.addMessage,
+    store.setMessages,
+  ])
+
+  useEffect(() => {
+    if (!initialMessages) return
+
+    setMessages(
+      initialMessages.map((text, i) => ({
+        id: String(Date.now()) + i,
+        type: 'bot',
+        text,
+      }))
+    )
+  }, [initialMessages, setMessages])
+
   const [question, setQuestion] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
   const container = useRef<HTMLDivElement>(null)
@@ -38,21 +42,10 @@ export function Chat({initialMessages}: ChatProps) {
     if (loading) return
 
     setLoading(true)
-    setMessages((messages) =>
-      messages.concat({id: String(Date.now()), type: 'user', text: question})
-    )
-    setQuestion('')
-
+    addMessage({id: String(Date.now()), type: 'user', text: question})
     const text = await getChatAnswer(question)
 
-    setMessages((messages) =>
-      messages.concat({
-        id: String(Date.now()),
-        type: 'bot',
-        text,
-      })
-    )
-
+    addMessage({id: String(Date.now()), type: 'bot', text})
     setLoading(false)
   }
 
@@ -60,20 +53,12 @@ export function Chat({initialMessages}: ChatProps) {
     if (loading) return
 
     setLoading(true)
-    setMessages((messages) =>
-      messages.concat({id: String(Date.now()), type: 'user', text: question})
-    )
+    addMessage({id: String(Date.now()), type: 'user', text: question})
     setQuestion('')
 
     const text = await getChatAnswer(question)
 
-    setMessages((messages) =>
-      messages.concat({
-        id: String(Date.now()),
-        type: 'bot',
-        text,
-      })
-    )
+    addMessage({id: String(Date.now()), type: 'bot', text})
 
     setLoading(false)
   }

@@ -7,6 +7,7 @@ import {Analytics} from '@vercel/analytics/react'
 import Lenify from '@/components/Lenify'
 import {ThemeProvider} from '@/components/ThemeProvider'
 import SectionObersver from '@/components/SectionObserver'
+import {Suspense} from 'react'
 
 interface IProps {
   children: React.ReactNode
