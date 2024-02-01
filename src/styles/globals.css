@@ -51,12 +51,20 @@ body {
 
 .form__container {
   @apply rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(var(--startDeg),var(--border)_0,transparent_100%)] bg-origin-border [background-clip:padding-box,border-box];
+
   --startDeg: 0deg;
+  --box-shadow-color: 40 40 40;
 
   --border: #0004;
   .dark & {
     --border: #eee5;
+    --box-shadow-color: 100 100 100;
   }
+
+  box-shadow:
+    0 0 0 1px rgb(var(--box-shadow-color) / 7%),
+    0 2px 4px rgb(var(--box-shadow-color) / 5%),
+    0 12px 24px rgb(var(--box-shadow-color) / 5%);
 }
 
 html.lenis {
