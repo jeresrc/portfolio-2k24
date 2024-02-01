@@ -31,7 +31,6 @@ body {
 }
 
 .navlink--selected {
-  /* @apply absolute bottom-1.5 left-[calc(100%/6)] h-[2px] w-2/3 bg-[#fff]; */
   @apply absolute bottom-0 left-0 h-full w-full rounded-2xl border-[1px] border-[#fff4] bg-[#fff2];
 }
 
@@ -46,8 +45,6 @@ body {
 .form__textarea {
   @apply h-[220px] w-full rounded-md border-[1px] border-[#0004] bg-white px-4 py-2 text-black dark:border-[#fff4] dark:bg-[#121212] dark:text-[#f0f0f0];
 }
-
-/* className='mb-4 mt-8 grid grid-cols-1 gap-2 rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(0rad,#666_0,#999_20%,transparent_80%)] bg-origin-border p-4 [background-clip:padding-box,border-box]' */
 
 .form__container {
   @apply rounded-md border border-transparent bg-[linear-gradient(var(--background),var(--background)),linear-gradient(var(--startDeg),var(--border)_0,transparent_100%)] bg-origin-border [background-clip:padding-box,border-box];
@@ -86,5 +83,3 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
-
-/* mb-4 mt-8 grid grid-cols-1 gap-2 md:grid-cols-2 */

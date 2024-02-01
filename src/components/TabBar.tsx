@@ -38,13 +38,19 @@ export function TabBar() {
           <a href='#home' className='relative flex-1 rounded-2xl px-2 py-1.5'>
             <House />
             {current == 'home' && (
-              <motion.span className='navlink--selected' layoutId='selected' />
+              <motion.span
+                className='navlink--selected'
+                layoutId='tab-selected'
+              />
             )}
           </a>
           <a href='#resume' className='relative flex-1 rounded-2xl px-2 py-1.5'>
             <SuitCase />
             {current == 'resume' && (
-              <motion.span className='navlink--selected' layoutId='selected' />
+              <motion.span
+                className='navlink--selected'
+                layoutId='tab-selected'
+              />
             )}
           </a>
           <a
@@ -53,7 +59,10 @@ export function TabBar() {
           >
             <Mail />
             {current == 'contact' && (
-              <motion.span className='navlink--selected' layoutId='selected' />
+              <motion.span
+                className='navlink--selected'
+                layoutId='tab-selected'
+              />
             )}
           </a>
         </motion.ul>
