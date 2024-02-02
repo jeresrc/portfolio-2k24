@@ -79,10 +79,10 @@ export function Chat({initialMessages}: ChatProps) {
             <div
               key={message.id}
               className={cn(
-                'relative max-w-[80%] rounded-md p-2 px-3 text-base text-black dark:text-white',
+                'relative inline-block min-w-0 max-w-[80%] rounded-md p-2 px-[11px] text-left text-base leading-[1.4] text-black dark:text-white',
                 message.type === 'bot'
-                  ? 'self-start rounded-tl-none bg-[#bbb3] text-left dark:bg-neutral-800'
-                  : 'self-end rounded-tr-none bg-[#eee3] text-right dark:bg-neutral-700',
+                  ? 'self-start rounded-tl-none bg-[#bbb3] dark:bg-neutral-800'
+                  : 'self-end rounded-tr-none bg-[#eee3] dark:bg-neutral-700',
                 messages.indexOf(message) === 1 && 'rounded-tl-md'
               )}
             >
@@ -97,7 +97,7 @@ export function Chat({initialMessages}: ChatProps) {
               >
                 {message.type === 'bot' ? <TailIn /> : <TailOut />}
               </span>
-              {message.text}
+              <span>{message.text}</span>
             </div>
           ))}
         </div>
