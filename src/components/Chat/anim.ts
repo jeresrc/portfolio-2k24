@@ -8,6 +8,9 @@ export const variants: AnimationProps['variants'] = {
   animate: {
     y: 10,
     opacity: 0,
+    transitionEnd: {
+      display: 'none',
+    },
   },
 }
 

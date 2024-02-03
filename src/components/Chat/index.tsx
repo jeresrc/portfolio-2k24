@@ -41,10 +41,10 @@ export function Chat({initialMessages}: ChatProps) {
     if (loading) return
 
     setLoading(true)
+    setQuestion('')
     addMessage({id: String(Date.now()), type: 'user', text: question})
 
     const text = await getChatAnswer(question)
-    setQuestion('')
 
     if (!text) {
       setLoading(false)
