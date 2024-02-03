@@ -37,31 +37,34 @@ export function Chat({initialMessages}: ChatProps) {
   const [loading, setLoading] = useState<boolean>(false)
   const container = useRef<HTMLDivElement>(null)
 
-  async function handleSubmit(event: React.FormEvent) {
-    event.preventDefault()
-
+  async function sendChatQuestion(question: string) {
     if (loading) return
 
     setLoading(true)
     addMessage({id: String(Date.now()), type: 'user', text: question})
+
     const text = await getChatAnswer(question)
+    setQuestion('')
+
+    if (!text) {
+      setLoading(false)
+      addMessage({
+        id: String(Date.now()),
+        type: 'bot',
+        text: 'Sorry, I did not understand that. Please try again.',
+      })
+
+      return
+    }
 
     addMessage({id: String(Date.now()), type: 'bot', text})
     setLoading(false)
   }
 
-  async function handleClick(question: string) {
-    if (loading) return
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault()
 
-    setLoading(true)
-    addMessage({id: String(Date.now()), type: 'user', text: question})
-    setQuestion('')
-
-    const text = await getChatAnswer(question)
-
-    addMessage({id: String(Date.now()), type: 'bot', text})
-
-    setLoading(false)
+    await sendChatQuestion(question)
   }
 
   useEffect(() => {
@@ -116,7 +119,7 @@ export function Chat({initialMessages}: ChatProps) {
               className='rounded-md border border-border bg-background px-3 py-1.5'
               type='button'
               disabled={loading}
-              onClick={() => handleClick('Who are you?')}
+              onClick={() => sendChatQuestion('Who are you?')}
             >
               Who are you?
             </button>
@@ -124,7 +127,9 @@ export function Chat({initialMessages}: ChatProps) {
               className='rounded-md border border-border bg-background px-3 py-1.5'
               type='button'
               disabled={loading}
-              onClick={() => handleClick('Tell me about your latest project')}
+              onClick={() =>
+                sendChatQuestion('Tell me about your latest project')
+              }
             >
               Latest Project
             </button>
@@ -133,7 +138,7 @@ export function Chat({initialMessages}: ChatProps) {
               type='button'
               disabled={loading}
               onClick={() =>
-                handleClick('Tell me about your professional experience')
+                sendChatQuestion('Tell me about your professional experience')
               }
             >
               Experience
