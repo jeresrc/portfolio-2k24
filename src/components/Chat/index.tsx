@@ -9,6 +9,7 @@ import {motion} from 'framer-motion'
 import {transition, variants} from './anim'
 import {useChatStore} from '@/store/chat'
 import {cn} from '@/utils/cn'
+import {GradientHr} from '../GradientHr'
 
 interface ChatProps {
   initialMessages: string[]
@@ -109,7 +110,7 @@ export function Chat({initialMessages}: ChatProps) {
           onSubmit={handleSubmit}
         >
           <motion.div
-            className='absolute -top-2 left-4 flex w-full flex-wrap-reverse gap-1 pr-4'
+            className='absolute -top-6 left-4 flex w-full flex-wrap-reverse gap-1 pr-4'
             initial='initial'
             animate={messages.length >= 5 && 'animate'}
             variants={variants}
@@ -144,6 +145,8 @@ export function Chat({initialMessages}: ChatProps) {
               Experience
             </button>
           </motion.div>
+          <GradientHr className='absolute -top-4 left-0' />
+
           <input
             className='form__input z-10 flex-1 rounded-md rounded-r-none border px-4 py-2 text-black'
             name='question'
