@@ -295,10 +295,13 @@ export default function Home() {
               />
             </div>
             <p>
-              This is a Single Page Application (SPA) frontend created with
-              React, Redux Toolkit, and Styled Components. The application
-              fetches video game data from the rawg.io API and also features its
-              own database to save new games.
+              Experience a feature-rich Single Page Application (SPA) frontend
+              crafted with React, Redux Toolkit, and Styled Components, enhanced
+              with Cloudinary for seamless image and video management.
+              Harnessing the power of Cypress and Jest, the application ensures
+              robust testing. Fetching data from the rawg.io API, it also boasts
+              its own database for storing new games, offering a dynamic and
+              engaging user experience.
             </p>
           </section>
         </article>
@@ -347,10 +350,10 @@ export default function Home() {
               />
             </div>
             <p>
-              This is a Single Page Application (SPA) frontend created with
-              React, Redux Toolkit, and Styled Components. The application
-              fetches video game data from the rawg.io API and also features its
-              own database to save new games.
+              Discover a single-page application created with React, Redux, and
+              Vite, showcasing the vibrant world of Rick and Morty. Explore
+              random characters, select by ID, and favorite your top picks for
+              an immersive experience.
             </p>
           </section>
         </article>
