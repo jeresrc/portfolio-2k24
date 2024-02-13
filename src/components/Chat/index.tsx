@@ -74,7 +74,7 @@ export function Chat({initialMessages}: ChatProps) {
 
   return (
     <main>
-      <FormContainer className='m-auto mt-8 flex flex-col gap-4'>
+      <FormContainer className='m-auto mt-8 flex flex-col gap-0 overflow-hidden'>
         <div
           ref={container}
           className='relative flex h-[480px] flex-col items-end justify-start gap-1 overflow-y-auto p-4 px-6'
@@ -105,12 +105,9 @@ export function Chat({initialMessages}: ChatProps) {
             </div>
           ))}
         </div>
-        <form
-          className='relative flex items-center p-4 pt-0'
-          onSubmit={handleSubmit}
-        >
+        <div className='relative'>
           <motion.div
-            className='absolute -top-6 left-4 flex w-full flex-wrap-reverse gap-1 pr-4'
+            className='absolute -top-2 left-4 z-10 flex w-full flex-wrap-reverse gap-1 pr-4'
             initial='initial'
             animate={messages.length >= 5 && 'animate'}
             variants={variants}
@@ -145,30 +142,34 @@ export function Chat({initialMessages}: ChatProps) {
               Experience
             </button>
           </motion.div>
-          <GradientHr className='absolute -top-4 left-0' />
-
-          <input
-            className='form__input z-10 flex-1 rounded-md rounded-r-none border px-4 py-2 text-black'
-            name='question'
-            placeholder='Ask me anything'
-            type='text'
-            value={question}
-            onChange={(event) => setQuestion(event.target.value)}
-          />
-          <button
-            className={`h-[42px] rounded-lg rounded-l-none px-4 py-2 text-white dark:text-black ${
-              loading
-                ? 'bg-neutral-500 dark:bg-neutral-300'
-                : 'bg-black dark:bg-white'
-            }`}
-            disabled={loading}
-            type='submit'
-            aria-label='Submit question'
-            title='Submit question'
+          <form
+            className='relative z-30 flex items-center bg-background p-4'
+            onSubmit={handleSubmit}
           >
-            {loading ? <Spin className='animate-spin' /> : <Plane />}
-          </button>
-        </form>
+            <GradientHr className='absolute left-0 top-0' />
+            <input
+              className='form__input flex-1 rounded-md rounded-r-none border px-4 py-2 text-black '
+              name='question'
+              placeholder='Ask me anything'
+              type='text'
+              value={question}
+              onChange={(event) => setQuestion(event.target.value)}
+            />
+            <button
+              className={`h-[42px] rounded-lg rounded-l-none px-4 py-2 text-white dark:text-black ${
+                loading
+                  ? 'bg-neutral-500 dark:bg-neutral-300'
+                  : 'bg-black dark:bg-white'
+              }`}
+              disabled={loading}
+              type='submit'
+              aria-label='Submit question'
+              title='Submit question'
+            >
+              {loading ? <Spin className='animate-spin' /> : <Plane />}
+            </button>
+          </form>
+        </div>
       </FormContainer>
     </main>
   )
