@@ -133,7 +133,15 @@ export default function Home() {
             <div className='flex flex-col'>
               <h4 className='text-lg font-bold'>Description</h4>
               <p className='text-base'>
-                I was working as a Front End Web Developer in Calm es simple.
+                During my internship at Calm as a Front-End Developer, I
+                specialized in creating responsive page layouts for mobile
+                devices and desktops, using tools like Figma and Notion for
+                design and documentation. I also focused on implementing SEO
+                strategies to boost search engine visibility. Working within
+                Agile methodologies, specifically SCRUM, I collaborated closely
+                with the team to prioritize tasks and meet project milestones
+                efficiently, enhancing my skills in front-end development and
+                adapting to fast-paced, collaborative environments.
               </p>
             </div>
           </li>
