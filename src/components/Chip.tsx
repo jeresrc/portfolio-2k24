@@ -3,7 +3,7 @@ import {cn} from '@/utils/cn'
 interface IProps {
   children: React.ReactNode
   variant: 'primary' | 'secondary'
-  blur: 'sm' | 'md' | 'lg'
+  blur?: 'sm' | 'md' | 'lg'
   rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   className?: string
 }
@@ -11,7 +11,7 @@ interface IProps {
 export function Chip({
   children,
   variant,
-  blur,
+  blur = 'sm',
   rounded = '2xl',
   className,
 }: IProps) {

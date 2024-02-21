@@ -67,26 +67,26 @@ export default function Home() {
           className='mt-4 flex h-fit max-w-sm flex-wrap items-start justify-start
           gap-2 fill-black dark:fill-white lg:mt-3 lg:justify-end'
         >
-          <Chip blur='lg' variant='primary'>
-            <a href='mailto:jeremiastomassrc@gmail.com'>
+          <a href='mailto:jeremiastomassrc@gmail.com'>
+            <Chip blur='lg' variant='primary'>
               jeremiastomassrc@gmail.com
-            </a>
-          </Chip>
-          <Chip blur='lg' variant='primary'>
-            <a href='https://github.com/jeresc' target='_blank'>
+            </Chip>
+          </a>
+          <a href='https://github.com/jeresc' target='_blank'>
+            <Chip blur='lg' variant='primary'>
               GitHub
-            </a>
-          </Chip>
-          <Chip blur='lg' variant='primary'>
-            <a href='https://www.linkedin.com/in/jeresc' target='_blank'>
+            </Chip>
+          </a>
+          <a href='https://www.linkedin.com/in/jeresc' target='_blank'>
+            <Chip blur='lg' variant='primary'>
               LinkedIn
-            </a>
-          </Chip>
-          <Chip blur='lg' variant='primary'>
-            <a href='/CV_Full Stack Web Developer_Soruco Jeremias.pdf' download>
+            </Chip>
+          </a>
+          <a href='/CV_Full Stack Web Developer_Soruco Jeremias.pdf' download>
+            <Chip blur='lg' variant='primary'>
               CV
-            </a>
-          </Chip>
+            </Chip>
+          </a>
           <Chip blur='lg' variant='primary'>
             <DarkModeButton />
           </Chip>
@@ -297,11 +297,9 @@ export default function Home() {
             <p>
               Experience a feature-rich Single Page Application (SPA) frontend
               crafted with React, Redux Toolkit, and Styled Components, enhanced
-              with Cloudinary for seamless image and video management.
-              Harnessing the power of Cypress and Jest, the application ensures
-              robust testing. Fetching data from the rawg.io API, it also boasts
-              its own database for storing new games, offering a dynamic and
-              engaging user experience.
+              with Cloudinary for seamless image management. Fetching data from
+              the rawg.io API, it also boasts its own database for storing new
+              games.
             </p>
           </section>
         </article>

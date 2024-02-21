@@ -10,6 +10,7 @@ const config: Config = {
   theme: {
     screens: {
       xs: '480px',
+      '2xs': '360px',
       ...defaultTheme.screens,
     },
     fontFamily: {
@@ -23,6 +24,9 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      height: {
+        '6.5': '1.625rem',
       },
       colors: {
         primary: '#fff',

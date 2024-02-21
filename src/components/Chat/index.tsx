@@ -10,6 +10,7 @@ import {transition, variants} from './anim'
 import {useChatStore} from '@/store/chat'
 import {cn} from '@/utils/cn'
 import {GradientHr} from '../GradientHr'
+import {PulseLoader, SyncLoader} from 'react-spinners'
 
 interface ChatProps {
   initialMessages: string[]
@@ -80,15 +81,17 @@ export function Chat({initialMessages}: ChatProps) {
           className='relative flex h-[480px] flex-col items-end justify-start gap-1 overflow-y-auto p-4 px-6'
         >
           {messages.map((message) => (
-            <div
+            <motion.div
               key={message.id}
+              data-owner={message.type}
               className={cn(
                 'relative inline-block min-w-0 max-w-[80%] rounded-md p-2 px-[11px] text-left text-base leading-[1.4] text-black dark:text-white',
                 message.type === 'bot'
-                  ? 'self-start rounded-tl-none bg-[#bbb3] dark:bg-neutral-800'
-                  : 'self-end rounded-tr-none bg-[#eee3] dark:bg-neutral-700',
+                  ? 'peer self-start rounded-tl-none bg-[#bbb3] dark:bg-neutral-800'
+                  : 'self-end rounded-tr-none bg-[#eee3] peer-data-[owner=bot]:my-2 dark:bg-neutral-700',
                 messages.indexOf(message) === 1 && 'rounded-tl-md'
               )}
+              layoutId={message.id}
             >
               <span
                 className={cn(
@@ -102,8 +105,32 @@ export function Chat({initialMessages}: ChatProps) {
                 {message.type === 'bot' ? <TailIn /> : <TailOut />}
               </span>
               <span>{message.text}</span>
-            </div>
+            </motion.div>
           ))}
+
+          {loading && (
+            <motion.div
+              data-owner='bot'
+              className={
+                'peer relative flex h-[38px] min-w-0 max-w-[80%] items-center self-start rounded-md rounded-tl-none bg-[#bbb3] p-2 px-[11px] text-left text-base leading-[1.4] text-black dark:bg-neutral-800 dark:text-white'
+              }
+            >
+              <span
+                className={cn(
+                  'absolute top-0 block h-[13px] w-2 rounded-b-sm ',
+                  '-left-2 text-[#f1f1f1] dark:text-neutral-800'
+                )}
+              >
+                <TailIn />
+              </span>
+              <PulseLoader
+                color='currentColor'
+                size={6}
+                margin={3}
+                speedMultiplier={0.9}
+              />
+            </motion.div>
+          )}
         </div>
         <div className='relative'>
           <motion.div
