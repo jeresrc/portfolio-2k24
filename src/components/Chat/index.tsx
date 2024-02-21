@@ -46,21 +46,29 @@ export function Chat({initialMessages}: ChatProps) {
     setQuestion('')
     addMessage({id: String(Date.now()), type: 'user', text: question})
 
-    const text = await getChatAnswer(question)
+    try {
+      const text = await getChatAnswer(question)
 
-    if (!text) {
+      if (!text) {
+        setLoading(false)
+        addMessage({
+          id: String(Date.now()),
+          type: 'bot',
+          text: 'Sorry, I did not understand that. Please try again.',
+        })
+
+        return
+      }
+      addMessage({id: String(Date.now()), type: 'bot', text})
+      setLoading(false)
+    } catch (error) {
       setLoading(false)
       addMessage({
         id: String(Date.now()),
         type: 'bot',
         text: 'Sorry, I did not understand that. Please try again.',
       })
-
-      return
     }
-
-    addMessage({id: String(Date.now()), type: 'bot', text})
-    setLoading(false)
   }
 
   async function handleSubmit(event: React.FormEvent) {
@@ -81,17 +89,16 @@ export function Chat({initialMessages}: ChatProps) {
           className='relative flex h-[480px] flex-col items-end justify-start gap-1 overflow-y-auto p-4 px-6'
         >
           {messages.map((message) => (
-            <motion.div
+            <div
               key={message.id}
               data-owner={message.type}
               className={cn(
-                'relative inline-block min-w-0 max-w-[80%] rounded-md p-2 px-[11px] text-left text-base leading-[1.4] text-black dark:text-white',
+                'relative inline-block min-w-0 max-w-[80%] text-pretty rounded-md p-2 px-[11px] text-left text-base leading-tight text-black dark:text-white sm:leading-[1.4]',
                 message.type === 'bot'
                   ? 'peer self-start rounded-tl-none bg-[#bbb3] dark:bg-neutral-800'
                   : 'self-end rounded-tr-none bg-[#eee3] peer-data-[owner=bot]:my-2 dark:bg-neutral-700',
                 messages.indexOf(message) === 1 && 'rounded-tl-md'
               )}
-              layoutId={message.id}
             >
               <span
                 className={cn(
@@ -105,32 +112,31 @@ export function Chat({initialMessages}: ChatProps) {
                 {message.type === 'bot' ? <TailIn /> : <TailOut />}
               </span>
               <span>{message.text}</span>
-            </motion.div>
+            </div>
           ))}
 
-          {loading && (
-            <motion.div
-              data-owner='bot'
-              className={
-                'peer relative flex h-[38px] min-w-0 max-w-[80%] items-center self-start rounded-md rounded-tl-none bg-[#bbb3] p-2 px-[11px] text-left text-base leading-[1.4] text-black dark:bg-neutral-800 dark:text-white'
-              }
+          <div
+            data-owner='bot'
+            className={cn(
+              'peer relative flex min-h-9 items-center self-start rounded-md rounded-tl-none bg-[#bbb3] p-2 px-[11px] text-left text-base leading-[1.4] text-black dark:bg-neutral-800 dark:text-white sm:min-h-[38px] ',
+              !loading && 'hidden'
+            )}
+          >
+            <span
+              className={cn(
+                'absolute top-0 block h-[13px] w-2 rounded-b-sm ',
+                '-left-2 text-[#f1f1f1] dark:text-neutral-800'
+              )}
             >
-              <span
-                className={cn(
-                  'absolute top-0 block h-[13px] w-2 rounded-b-sm ',
-                  '-left-2 text-[#f1f1f1] dark:text-neutral-800'
-                )}
-              >
-                <TailIn />
-              </span>
-              <PulseLoader
-                color='currentColor'
-                size={6}
-                margin={3}
-                speedMultiplier={0.9}
-              />
-            </motion.div>
-          )}
+              <TailIn />
+            </span>
+            <PulseLoader
+              color='currentColor'
+              size={6}
+              margin={3}
+              speedMultiplier={0.9}
+            />
+          </div>
         </div>
         <div className='relative'>
           <motion.div
