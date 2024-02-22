@@ -13,6 +13,7 @@ export function Footer() {
           >
             <Chip variant='primary'>
               <EnvelopeClosedIcon width={20} height={20} />
+              <span className='sr-only'>Email: jeremiastomassrc@gmail.com</span>
             </Chip>
           </a>
           <a

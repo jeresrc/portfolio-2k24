@@ -83,3 +83,7 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+.tooltip {
+  @apply z-50 rounded-2xl border-[1px] border-border bg-background px-3 py-1 text-sm;
+}

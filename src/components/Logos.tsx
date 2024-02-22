@@ -16,6 +16,9 @@ import {
   ZustandLogo,
 } from '@/assets/svg'
 
+import {TooltipGroup} from './tooltip-group'
+import {Tooltip} from './tooltip'
+
 interface ILogos {
   [key: string]: JSX.Element
 }
@@ -42,15 +45,28 @@ interface IProps {
 
 export function Logos({names}: IProps) {
   return (
-    <div
-      className='flex h-fit w-fit justify-start gap-2
+    <TooltipGroup placement='top'>
+      <div
+        className='flex h-fit w-fit justify-start gap-2
       rounded-2xl border-[1px] border-[#0004] px-2 py-1 dark:border-[#fff4]'
-    >
-      {names.map((logo, index) => (
-        <span key={index} className='h-6 w-6 fill-black dark:fill-white'>
-          {logos[logo]}
-        </span>
-      ))}
-    </div>
+      >
+        <p className='sr-only'>Tech stack used:</p>
+        {names.map((logo) => (
+          <Tooltip
+            key={logo}
+            content={logo.replace(/([A-Z])/g, ' $1').trim()}
+            showDelay={300}
+            hideDelay={10}
+          >
+            <div className='h-6 w-6 fill-black dark:fill-white'>
+              {logos[logo]}
+              <span className='sr-only'>
+                {logo.replace(/([A-Z])/g, ' $1').trim()}
+              </span>
+            </div>
+          </Tooltip>
+        ))}
+      </div>
+    </TooltipGroup>
   )
 }

@@ -70,7 +70,7 @@ export default function RootLayout({children, contact, chatbot}: IProps) {
       lang='en'
       className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable}`}
     >
-      <body className='bg-white dark:bg-[#121212]'>
+      <body className='overflow-x-hidden bg-white dark:bg-[#121212]'>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
