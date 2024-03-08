@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import {motion} from 'framer-motion'
-import Link from 'next/link'
+import {motion} from "framer-motion";
+import Link from "next/link";
 
-interface IProps {
-  children: React.ReactNode
-  href: string
+interface NavLinkProps {
+  children: React.ReactNode;
+  href: string;
 }
 
-export function NavLink({children, href}: IProps) {
+export function NavLink({children, href}: NavLinkProps) {
   return (
-    <motion.li className='relative rounded-2xl px-2 py-1.5'>
-      <Link href={href} className='relative'>
+    <motion.li className="relative rounded-2xl px-2 py-1.5">
+      <Link className="relative" href={href}>
         {children}
       </Link>
     </motion.li>
-  )
+  );
 }

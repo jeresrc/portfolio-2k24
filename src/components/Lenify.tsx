@@ -1,34 +1,36 @@
-'use client'
-import Tempus from '@studio-freight/tempus'
-import Lenis from '@studio-freight/lenis'
-import {useEffect, useLayoutEffect, useRef} from 'react'
-import {usePathname} from 'next/navigation'
+"use client";
+import Tempus from "@studio-freight/tempus";
+import Lenis from "@studio-freight/lenis";
+import {useEffect, useLayoutEffect, useRef} from "react";
+import {usePathname} from "next/navigation";
 
 export default function Lenify() {
-  const lenis = useRef<Lenis | null>(null)
-  const pathname = usePathname()
+  const lenis = useRef<Lenis | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (lenis.current) lenis.current!.scrollTo(0, {immediate: true})
-  }, [pathname, lenis])
+    if (lenis.current) lenis.current.scrollTo(0, {immediate: true});
+  }, [pathname, lenis]);
 
   useLayoutEffect(() => {
-    lenis.current = new Lenis()
+    lenis.current = new Lenis();
 
     const resize = setInterval(() => {
-      lenis.current!.resize()
-    }, 150)
+      lenis.current!.resize();
+    }, 150);
+
     function onFrame(time: number) {
-      lenis.current!.raf(time)
+      lenis.current!.raf(time);
     }
-    const unsubscribe = Tempus.add(onFrame)
+    const unsubscribe = Tempus.add(onFrame);
 
     return () => {
-      unsubscribe()
-      clearInterval(resize)
-      lenis.current!.destroy()
-      lenis.current = null
-    }
-  }, [])
-  return null
+      unsubscribe();
+      clearInterval(resize);
+      lenis.current!.destroy();
+      lenis.current = null;
+    };
+  }, []);
+
+  return null;
 }

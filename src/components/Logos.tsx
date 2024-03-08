@@ -1,5 +1,6 @@
-'use client'
-import React from 'react'
+"use client";
+import React from "react";
+
 import {
   AstroLogo,
   CypressLogo,
@@ -14,14 +15,12 @@ import {
   TsLogo,
   ViteLogo,
   ZustandLogo,
-} from '@/assets/svg'
+} from "@/assets/svg";
 
-import {TooltipGroup} from './tooltip-group'
-import {Tooltip} from './tooltip'
+import {TooltipGroup} from "./tooltip-group";
+import {Tooltip} from "./tooltip";
 
-interface ILogos {
-  [key: string]: JSX.Element
-}
+type ILogos = Record<string, JSX.Element>;
 
 const logos: ILogos = {
   Javascript: <JsLogo />,
@@ -37,36 +36,34 @@ const logos: ILogos = {
   Vite: <ViteLogo />,
   Zustand: <ZustandLogo />,
   FramerMotion: <FramerMotionLogo />,
+};
+
+interface LogosProps {
+  names: string[];
 }
 
-interface IProps {
-  names: string[]
-}
-
-export function Logos({names}: IProps) {
+export function Logos({names}: LogosProps) {
   return (
-    <TooltipGroup placement='top'>
-      <div
-        className='flex h-fit w-fit justify-start gap-2
-      rounded-2xl border-[1px] border-[#0004] px-2 py-1 dark:border-[#fff4]'
-      >
-        <p className='sr-only'>Tech stack used:</p>
+    <div
+      className="flex h-fit w-fit justify-start gap-2
+      rounded-2xl border-[1px] border-[#0004] px-2 py-1 dark:border-[#fff4]"
+    >
+      <p className="sr-only">Tech stack used:</p>
+      <TooltipGroup>
         {names.map((logo) => (
           <Tooltip
             key={logo}
-            content={logo.replace(/([A-Z])/g, ' $1').trim()}
-            showDelay={300}
+            content={logo.replace(/([A-Z])/g, " $1").trim()}
             hideDelay={10}
+            showDelay={300}
           >
-            <div className='h-6 w-6 fill-black dark:fill-white'>
+            <div className="h-6 w-6 fill-black dark:fill-white">
               {logos[logo]}
-              <span className='sr-only'>
-                {logo.replace(/([A-Z])/g, ' $1').trim()}
-              </span>
+              <span className="sr-only">{logo.replace(/([A-Z])/g, " $1").trim()}</span>
             </div>
           </Tooltip>
         ))}
-      </div>
-    </TooltipGroup>
-  )
+      </TooltipGroup>
+    </div>
+  );
 }

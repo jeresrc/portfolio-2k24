@@ -1,12 +1,37 @@
-'use server'
+"use server";
+
+export interface APIResults {
+  candidates: Candidate[];
+}
+
+export interface Candidate {
+  content: Content;
+  finishReason: string;
+  index: number;
+  safetyRatings: SafetyRating[];
+}
+
+export interface Content {
+  parts: Part[];
+  role: string;
+}
+
+export interface Part {
+  text: string;
+}
+
+export interface SafetyRating {
+  category: string;
+  probability: string;
+}
 
 export async function getChatAnswer(question: string) {
   const data = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
     {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         contents: [
@@ -27,27 +52,27 @@ export async function getChatAnswer(question: string) {
         },
         safetySettings: [
           {
-            category: 'HARM_CATEGORY_HARASSMENT',
-            threshold: 'BLOCK_MEDIUM_AND_ABOVE',
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE",
           },
           {
-            category: 'HARM_CATEGORY_HATE_SPEECH',
-            threshold: 'BLOCK_MEDIUM_AND_ABOVE',
+            category: "HARM_CATEGORY_HATE_SPEECH",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE",
           },
           {
-            category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-            threshold: 'BLOCK_MEDIUM_AND_ABOVE',
+            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE",
           },
           {
-            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
-            threshold: 'BLOCK_MEDIUM_AND_ABOVE',
+            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE",
           },
         ],
       }),
-    }
-  ).then((res) => res.json())
+    },
+  ).then((res) => res.json() as Promise<APIResults>);
 
-  if (!data.candidates[0]) return ''
+  if (!data.candidates[0]) return "";
 
-  return data.candidates[0].content.parts[0].text as string
+  return data.candidates[0].content.parts[0].text;
 }

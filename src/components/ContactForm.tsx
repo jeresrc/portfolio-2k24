@@ -1,23 +1,19 @@
-'use client'
+"use client";
 
-import {FieldErrors, FieldPath, useForm, UseFormRegister} from 'react-hook-form'
-import {sendEmail, State} from '@/app/actions'
-import {useFormState, useFormStatus} from 'react-dom'
-import {zodResolver} from '@hookform/resolvers/zod'
-import {formSchema} from '@/utils/validation'
-import {useCallback, useEffect, useRef, useState} from 'react'
-import {Plane} from '@/assets/svg'
-import {
-  useMotionValue,
-  useMotionValueEvent,
-  useSpring,
-  useTransform,
-} from 'framer-motion'
+import {type FieldErrors, type FieldPath, useForm, type UseFormRegister} from "react-hook-form";
+import {useFormState, useFormStatus} from "react-dom";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {useCallback, useEffect, useRef} from "react";
+import {useMotionValueEvent, useSpring} from "framer-motion";
+
+import {formSchema} from "@/utils/validation";
+import {Plane} from "@/assets/svg";
+import {sendEmail, type State} from "@/app/actions";
 
 export interface FormValues {
-  name: string
-  email: string
-  message: string
+  name: string;
+  email: string;
+  message: string;
 }
 
 export function FormContent({
@@ -25,60 +21,48 @@ export function FormContent({
   isValid,
   errors,
 }: {
-  register: UseFormRegister<FormValues>
-  isValid: boolean
-  errors: FieldErrors<FormValues>
+  register: UseFormRegister<FormValues>;
+  isValid: boolean;
+  errors: FieldErrors<FormValues>;
 }) {
-  const {pending} = useFormStatus()
+  const {pending} = useFormStatus();
 
   return (
     <>
       <div>
-        <label className='flex w-full flex-col'>
+        <label className="flex w-full flex-col">
           Name
-          <input
-            {...register('name')}
-            placeholder='Name'
-            className='form__input'
-          />
+          <input {...register("name")} className="form__input" placeholder="Name" />
         </label>
-        {errors.name && <span>{errors.name.message}</span>}
+        {errors.name ? <span>{errors.name.message}</span> : null}
       </div>
 
       <div>
         <label>
           Email
-          <input
-            {...register('email')}
-            placeholder='Email'
-            className='form__input'
-          />
+          <input {...register("email")} className="form__input" placeholder="Email" />
         </label>
-        {errors.email && <span>{errors.email.message}</span>}
+        {errors.email ? <span>{errors.email.message}</span> : null}
       </div>
 
-      <div className='md:col-span-2'>
+      <div className="md:col-span-2">
         <label>
           Message
-          <textarea
-            {...register('message')}
-            placeholder='Message'
-            className='form__textarea'
-          />
+          <textarea {...register("message")} className="form__textarea" placeholder="Message" />
         </label>
-        {errors.message && <span>{errors.message.message}</span>}
+        {errors.message ? <span>{errors.message.message}</span> : null}
       </div>
 
       <button
-        type='submit'
+        className="text-on-primary h-8 rounded-md bg-primary px-12 py-2 text-sm font-medium text-black hover:bg-primary/90 md:col-span-2"
         disabled={pending || !isValid}
-        className='text-on-primary h-8 rounded-md bg-primary px-12 py-2 text-sm font-medium text-black hover:bg-primary/90 md:col-span-2'
+        type="submit"
       >
         <Plane />
       </button>
-      {pending && <span>Loading...</span>}
+      {pending ? <span>Loading...</span> : null}
     </>
-  )
+  );
 }
 
 export function ContactForm() {
@@ -87,61 +71,62 @@ export function ContactForm() {
     formState: {isValid, errors},
     setError,
   } = useForm<FormValues>({
-    mode: 'all',
+    mode: "all",
     resolver: zodResolver(formSchema),
-  })
-  const [state, formAction] = useFormState<State, FormData>(sendEmail, null)
+  });
+  const [state, formAction] = useFormState<State, FormData>(sendEmail, null);
 
   useEffect(() => {
     if (!state) {
-      return
+      return;
     }
-    if (state.status === 'error') {
+    if (state.status === "error") {
       state.errors?.forEach((error) => {
         setError(error.path as FieldPath<FormValues>, {
           message: error.message,
-        })
-      })
+        });
+      });
     }
-    if (state.status === 'success') {
-      alert(state.message)
+    if (state.status === "success") {
+      alert(state.message);
     }
-  }, [state, setError])
+  }, [state, setError]);
 
-  const formRef = useRef<HTMLFormElement | null>(null)
-  const springAngle = useSpring(0, {stiffness: 1000, damping: 200})
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const springAngle = useSpring(0, {stiffness: 1000, damping: 200});
 
   const mouseMoveListener = useCallback(
     ({clientX, clientY}: MouseEvent) => {
       if (formRef.current === null) {
-        return
+        return;
       }
-      const {x, y, width, height} = formRef.current.getBoundingClientRect()
-      const dx = clientX - (x + 0.5 * width)
-      const dy = clientY - (y + 0.5 * height)
-      const angle = (Math.atan2(dy, dx) * 180) / Math.PI - 90
+      const {x, y, width, height} = formRef.current.getBoundingClientRect();
+      const dx = clientX - (x + 0.5 * width);
+      const dy = clientY - (y + 0.5 * height);
+      const angle = (Math.atan2(dy, dx) * 180) / Math.PI - 90;
 
-      springAngle.set(angle)
+      springAngle.set(angle);
     },
-    [springAngle]
-  )
+    [springAngle],
+  );
 
-  useMotionValueEvent(springAngle, 'change', (angle) => {
+  useMotionValueEvent(springAngle, "change", (angle) => {
     if (formRef.current === null) {
-      return
+      return;
     }
-    formRef.current.style.setProperty('--startDeg', `${angle}deg`)
-  })
+    formRef.current.style.setProperty("--startDeg", `${angle}deg`);
+  });
 
   useEffect(() => {
-    window.addEventListener('mousemove', mouseMoveListener, false)
-    return () => window.removeEventListener('mousemove', mouseMoveListener)
-  }, [mouseMoveListener])
+    window.addEventListener("mousemove", mouseMoveListener, false);
+
+    return () => window.removeEventListener("mousemove", mouseMoveListener);
+  }, [mouseMoveListener]);
 
   return (
-    <form action={formAction} ref={formRef} className='form__container'>
-      <h2 className='text-3xl font-bold md:col-span-2'>Get in touch</h2>
-      <FormContent register={register} isValid={isValid} errors={errors} />
+    <form ref={formRef} action={formAction} className="form__container">
+      <h2 className="text-3xl font-bold md:col-span-2">Get in touch</h2>
+      <FormContent errors={errors} isValid={isValid} register={register} />
     </form>
-  )
+  );
 }

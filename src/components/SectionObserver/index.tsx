@@ -1,27 +1,28 @@
-'use client'
-import {useCurrentSection} from '@/store/currentSection'
-import {useEffect} from 'react'
+"use client";
+import {useEffect} from "react";
+
+import {useCurrentSection} from "@/store/currentSection";
 
 export default function SectionObersver() {
-  const setCurrent = useCurrentSection((store) => store.setCurrent)
+  const setCurrent = useCurrentSection((store) => store.setCurrent);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > 0.1) {
-            setCurrent(entry.target.id)
+            setCurrent(entry.target.id);
           }
-        })
+        });
       },
-      {threshold: [0, 1]}
-    )
+      {threshold: [0, 1]},
+    );
 
-    document.querySelectorAll('section').forEach((t) => {
-      if (!t.id) return
-      observer.observe(t)
-    })
-  }, [setCurrent])
+    document.querySelectorAll("section").forEach((t) => {
+      if (!t.id) return;
+      observer.observe(t);
+    });
+  }, [setCurrent]);
 
-  return null
+  return null;
 }

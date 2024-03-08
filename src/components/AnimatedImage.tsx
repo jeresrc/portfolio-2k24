@@ -1,36 +1,36 @@
-'use client'
-import {motion} from 'framer-motion'
-import Image from 'next/image'
-import React, {forwardRef} from 'react'
+"use client";
+import {motion} from "framer-motion";
+import Image from "next/image";
+import React, {forwardRef} from "react";
 
-interface IProps {
-  src: string
-  alt: string
-  priority?: boolean
-  isCover?: boolean
+interface AnimatedImagesProps {
+  src: string;
+  alt: string;
+  priority?: boolean;
+  isCover?: boolean;
 }
 
-const MotionImage = motion(Image)
+const MotionImage = motion(Image);
 
 export const AnimatedImage = forwardRef(function AnimatedImage(
-  {src, alt, priority, isCover}: IProps,
-  ref: React.ForwardedRef<HTMLImageElement>
+  {src, alt, priority}: AnimatedImagesProps,
+  ref: React.ForwardedRef<HTMLImageElement>,
 ) {
   return (
     <MotionImage
       ref={ref}
-      src={src}
       alt={alt}
-      layout='position'
-      initial={{opacity: 1, y: 0, scale: 1}}
       exit={{opacity: 0, y: 30, scale: 0.8}}
-      transition={{duration: 0.4, type: 'spring'}}
+      height={470}
+      initial={{opacity: 1, y: 0, scale: 1}}
+      layout="position"
+      src={src}
+      transition={{duration: 0.4, type: "spring"}}
       // width={isCover ? 1050 : 850}
       // height={isCover ? 700 : 470}
       width={850}
-      height={470}
       {...(priority && {priority: true})}
-      className='aspect-video h-full w-full rounded-lg object-cover'
+      className="aspect-video h-full w-full rounded-lg object-cover"
     />
-  )
-})
+  );
+});

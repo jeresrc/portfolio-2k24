@@ -1,20 +1,20 @@
-import {AnimationProps} from 'framer-motion'
+import {type AnimationProps} from "framer-motion";
 
-export const variants: AnimationProps['variants'] = {
+export const variants: AnimationProps["variants"] = {
   initial: {
-    y: 'calc(-100%)',
+    y: "calc(-100%)",
     opacity: 1,
   },
   animate: {
     y: 10,
     opacity: 0,
     transitionEnd: {
-      display: 'none',
+      display: "none",
     },
   },
-}
+};
 
-export const transition: AnimationProps['transition'] = {
+export const transition: AnimationProps["transition"] = {
   duration: 0.4,
   stiffness: 200,
   damping: 30,
@@ -22,4 +22,4 @@ export const transition: AnimationProps['transition'] = {
   opacity: {
     delay: 0.1,
   },
-}
+};

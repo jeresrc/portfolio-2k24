@@ -1,11 +1,11 @@
-import {create} from 'zustand'
+import {create} from "zustand";
 
-interface currentSectionState {
-  current: string
-  setCurrent: (current: string) => void
+interface CurrentSectionState {
+  current: string;
+  setCurrent: (current: string) => void;
 }
 
-export const useCurrentSection = create<currentSectionState>()((set) => ({
-  current: 'home',
+export const useCurrentSection = create<CurrentSectionState>()((set) => ({
+  current: "home",
   setCurrent: (current) => set({current}),
-}))
+}));

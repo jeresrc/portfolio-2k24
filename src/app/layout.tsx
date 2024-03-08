@@ -1,84 +1,83 @@
-import {Footer, Header, TabBar} from '@/components'
-import '@/styles/index.css'
-import type {Metadata} from 'next'
-import {Montserrat, Playfair_Display} from 'next/font/google'
-import localFont from 'next/font/local'
-import {Analytics} from '@vercel/analytics/react'
-import Lenify from '@/components/Lenify'
-import {ThemeProvider} from '@/components/ThemeProvider'
-import SectionObersver from '@/components/SectionObserver'
+import "@/styles/index.css";
+import type {Metadata} from "next";
 
-interface IProps {
-  children: React.ReactNode
-  contact: React.ReactNode
-  chatbot: React.ReactNode
+import {Montserrat, Playfair_Display} from "next/font/google";
+import localFont from "next/font/local";
+import {Analytics} from "@vercel/analytics/react";
+
+import {Footer, Header, TabBar} from "@/components";
+import Lenify from "@/components/Lenify";
+import {ThemeProvider} from "@/components/ThemeProvider";
+import SectionObersver from "@/components/SectionObserver";
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+  contact: React.ReactNode;
+  chatbot: React.ReactNode;
 }
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
-})
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 const playfair = Playfair_Display({
-  weight: ['400', '500', '700'],
-  subsets: ['latin-ext'],
-  variable: '--font-playfair',
-})
+  weight: ["400", "500", "700"],
+  subsets: ["latin-ext"],
+  variable: "--font-playfair",
+});
 
 const monaSans = localFont({
   src: [
     {
-      path: '../fonts/Mona-Sans.woff2',
+      path: "../fonts/Mona-Sans.woff2",
     },
   ],
-  variable: '--font-mona-sans',
-  display: 'swap',
-})
+  variable: "--font-mona-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jeresc.vercel.app/'),
-  title: 'jeresc - Front End Developer',
+  metadataBase: new URL("https://jeresc.vercel.app/"),
+  title: "jeresc - Front End Developer",
   description:
-    'Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
+    "Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.",
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon-32x32.png',
-    192: '/android-chrome-192x192.png',
-    512: '/android-chrome-512x512.png',
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-32x32.png",
+    192: "/android-chrome-192x192.png",
+    512: "/android-chrome-512x512.png",
   },
   openGraph: {
-    title: 'Jeremias Soruco - Portfolio',
+    title: "Jeremias Soruco - Portfolio",
     description:
-      'Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.',
-    type: 'website',
+      "Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.",
+    type: "website",
     images: [
       {
-        url: 'https://jeresc.vercel.app/og.jpg',
+        url: "https://jeresc.vercel.app/og.jpg",
         width: 1200,
         height: 700,
-        alt: 'jeresc - Front End Developer',
-        type: 'image/jpeg',
+        alt: "jeresc - Front End Developer",
+        type: "image/jpeg",
       },
     ],
   },
-}
+};
 
-export default function RootLayout({children, contact, chatbot}: IProps) {
+export default function RootLayout({children, contact, chatbot}: RootLayoutProps) {
   return (
-    <html
-      lang='en'
-      className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable}`}
-    >
-      <body className='overflow-x-hidden bg-white dark:bg-[#121212]'>
+    <html className={`${montserrat.variable} ${playfair.variable} ${monaSans.variable}`} lang="en">
+      <body className="overflow-x-hidden bg-white dark:bg-[#121212]">
         <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
           disableTransitionOnChange
+          enableSystem
+          attribute="class"
+          defaultTheme="system"
         >
           <Header />
-          <main className='mx-auto max-w-7xl p-4'>
+          <main className="mx-auto max-w-7xl p-4">
             {children}
             {contact}
             {chatbot}
@@ -91,5 +90,5 @@ export default function RootLayout({children, contact, chatbot}: IProps) {
       <Lenify />
       <SectionObersver />
     </html>
-  )
+  );
 }
