@@ -27,7 +27,7 @@ export interface SafetyRating {
 
 export async function getChatAnswer(question: string) {
   const data = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: {
