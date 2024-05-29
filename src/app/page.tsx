@@ -260,7 +260,7 @@ export default function Home() {
               <Logos names={["React", "Redux", "Express", "Jest", "Cypress"]} />
             </header>
             <div>
-              <LinkButton href="https://videogames-app-jeresc.vercel.app/" text="Live Demo" />
+              <LinkButton href="https://andgames.jeresc.com" text="Live Demo" />
               <LinkButton href="https://github.com/jeresc/andgames" text="Source Code" />
             </div>
             <p>
