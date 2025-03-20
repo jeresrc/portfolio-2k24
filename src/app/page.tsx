@@ -36,7 +36,7 @@ export default function Home() {
             className="font-monaSans text-[4.1rem] font-[800] leading-none [font-stretch:200%] xs:text-8xl"
             id="home"
           >
-            JERESC
+            JERESRC
           </h1>
 
           <h2 className="inline-block font-playfair text-4xl font-medium leading-none">
@@ -78,7 +78,7 @@ export default function Home() {
               GitHub
             </Chip>
           </a>
-          <a href="https://www.linkedin.com/in/jeresc" rel="noopener" target="_blank">
+          <a href="https://www.linkedin.com/in/jeresrc" rel="noopener" target="_blank">
             <Chip blur="lg" variant="primary">
               LinkedIn
             </Chip>
@@ -260,8 +260,8 @@ export default function Home() {
               <Logos names={["React", "Redux", "Express", "Jest", "Cypress"]} />
             </header>
             <div>
-              <LinkButton href="https://andgames.jeresc.com" text="Live Demo" />
-              <LinkButton href="https://github.com/jeresc/andgames" text="Source Code" />
+              <LinkButton href="https://andgames.jeresrc.com" text="Live Demo" />
+              <LinkButton href="https://github.com/jeresrc/andgames" text="Source Code" />
             </div>
             <p>
               Experience a feature-rich Single Page Application (SPA) frontend crafted with React,
@@ -306,8 +306,8 @@ export default function Home() {
               <Logos names={["React", "Redux", "Vite"]} />
             </header>
             <div>
-              <LinkButton href="https://jeresc.github.io/rick-and-morty-app" text="Live Demo" />
-              <LinkButton href="https://github.com/jeresc/rick-and-morty-app" text="Source Code" />
+              <LinkButton href="https://jeresrc.github.io/rick-and-morty-app" text="Live Demo" />
+              <LinkButton href="https://github.com/jeresrc/rick-and-morty-app" text="Source Code" />
             </div>
             <p>
               Discover a single-page application created with React, Redux, and Vite, showcasing the

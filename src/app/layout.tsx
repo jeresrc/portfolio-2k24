@@ -38,8 +38,8 @@ const monaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jeresc.vercel.app/"),
-  title: "jeresc - Front End Developer",
+  metadataBase: new URL("https://jeresrc.com/"),
+  title: "jeresrc - Front End Developer",
   description:
     "Explore the portfolio of Jeremias Soruco, a full-stack developer based in Buenos Aires, Argentina, showcasing a variety of projects and skills in web development, design, and more.",
   icons: {
@@ -56,10 +56,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://jeresc.vercel.app/og.jpg",
+        url: "https://jeresrc.com/og.jpg",
         width: 1200,
         height: 700,
-        alt: "jeresc - Front End Developer",
+        alt: "jeresrc - Front End Developer",
         type: "image/jpeg",
       },
     ],

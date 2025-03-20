@@ -12,17 +12,6 @@ interface ChatState {
   addMessage: (message: Message) => void;
 }
 
-// {
-//   id: '777',
-//   type: 'bot',
-//   text: "Hey, I'm jeresc.",
-// },
-// {
-//   id: '999',
-//   type: 'bot',
-//   text: 'How can I help you?',
-// },
-
 export const useChatStore = create<ChatState>()((set) => ({
   messages: [],
   setMessages: (messages) => set({messages}),

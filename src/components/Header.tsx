@@ -28,7 +28,7 @@ export function Header() {
       variants={variants}
     >
       <Chip blur="md" variant="secondary">
-        <p className="h-[14px] leading-none">JERESC</p>
+        <p className="h-[14px] leading-none">JERESRC</p>
       </Chip>
       <Nav />
       <Chip blur="md" variant="secondary">
